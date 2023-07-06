@@ -15,10 +15,10 @@ function Navbar() {
           <Link href="/api/auth/signout">Sign Out</Link>
         </li>
         <li>
-          <Link href="/">Server</Link>
+          <Link href="/server">Server</Link>
         </li>
         <li>
-          <Link href="/">Client</Link>
+          <Link href="/client">Client</Link>
         </li>
         <li>
           <Link href="/extra">Extra</Link>

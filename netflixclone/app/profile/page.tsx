@@ -17,7 +17,7 @@ const router = useRouter()
       <section className="flex justify-center flex-col items-center h-full ">
         <p className="text-white text-4xl mb-5">Who is watching?</p>
 
-        <div className="group" onClick={() => router.push('/Home')}>
+        <div className="group" onClick={() => router.push('/')}>
         <div className=" w-44 h-44 flex items-center justify-center border-2 border-transparent 
         rounded-md hover:border-white hover:cursor-pointer">
           <Image
@@ -28,7 +28,7 @@ const router = useRouter()
           />
         </div>
         <div className="text-gray-400 mt-4 text-2xl text-center group-hover:text-white">
-           <Link href='/Home'>User Name</Link>
+           <Link href='/'>User Name</Link>
         </div>
         </div>
       </section>
