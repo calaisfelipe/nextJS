@@ -59,7 +59,8 @@ const handler = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/",
+    signIn: "/profile",
+    signOut: "/auth",
   },
   debug: process.env.NODE_ENV === "development",
   adapter: PrismaAdapter(prismadb),
