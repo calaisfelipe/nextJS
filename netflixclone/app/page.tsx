@@ -5,6 +5,8 @@ import { NextPageContext } from "next";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import Navbar from "@/components/Navbar";
 import Billboard from "@/components/Billboard";
+import MoviesList from "@/components/MoviesList";
+import { movies } from "@/data/movies";
 
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -31,6 +33,9 @@ export default function Home() {
     <main>
       <Navbar />
       <Billboard />
+      <div className="pb-40">
+        <MoviesList title="Trending Now" movies={movies} />
+      </div>
     </main>
   );
 }
