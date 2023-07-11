@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { movies } from "@/data/movies";
 import {AiOutlineInfoCircle} from 'react-icons/ai'
+import { BsFillPlayFill } from "react-icons/bs";
 
 function Billboard() {
   const [currentMovie, setCurrentMovie] = useState({
@@ -34,7 +35,10 @@ function Billboard() {
         <p className="text-white text-[8px] md:text-lg mt-3 md:mt-8 w-[50%] md:w-[50%] lg:w-[50%] drop-shadow-xl">
           {currentMovie.description}
         </p>
-        <div className="flex flex-row items-center mt-3 md:mt-4 gap-3 ">
+        <div className="flex flex-row items-center mt-3 md:mt-4 gap-1 lg:gap-2">
+        <button className=" bg-white rounded-md p-1 md:p-2 text-xs md:text-lg lg:text-2xl mt-2  py-1 md:py-2 px-2 md:px-4 w-auto font-semibold flex flex-row items-center hover:bg-opacity-20 transition gap-1">
+          <BsFillPlayFill /> Play
+          </button>
           <button className="text-white bg-white bg-opacity-30 rounded-md p-1 md:p-2 text-xs md:text-lg lg:text-2xl mt-2  py-1 md:py-2 px-2 md:px-4 w-auto font-semibold flex flex-row items-center hover:bg-opacity-20 transition gap-1">
           <AiOutlineInfoCircle /> More info 
           </button>

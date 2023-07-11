@@ -10,6 +10,7 @@ import { movies } from "@/data/movies";
 
 
 export async function getServerSideProps(context: NextPageContext) {
+  
   const session = await getSession(context);
 
   if (!session) {
@@ -28,6 +29,7 @@ export async function getServerSideProps(context: NextPageContext) {
 
 export default function Home() {
   const { data: user } = useCurrentUser();
+  const myfavorites = [movies[1]]
 
   return (
     <main>
@@ -35,6 +37,7 @@ export default function Home() {
       <Billboard />
       <div className="pb-40">
         <MoviesList title="Trending Now" movies={movies} />
+        <MoviesList title="My List" movies={myfavorites} />
       </div>
     </main>
   );

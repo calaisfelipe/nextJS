@@ -59,7 +59,7 @@ const handler = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/profile",
+    signIn: "/auth",
     signOut: "/auth",
   },
   debug: process.env.NODE_ENV === "development",

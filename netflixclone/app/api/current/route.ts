@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import serverAuth from "@/lib/serverAuth";
 
-export default async function GET(request: any){
+const handlerCurrent = async function(request: any){
 
     try{
         const {currentUser } = await serverAuth(request)
@@ -15,3 +15,5 @@ export default async function GET(request: any){
 
 
 }
+
+export { handlerCurrent as GET, handlerCurrent as POST}
