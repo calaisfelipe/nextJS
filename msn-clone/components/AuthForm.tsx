@@ -5,6 +5,7 @@ import InputForm from "@/components/InputForm";
 import { AiOutlineGithub, AiOutlineLoading } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
+import axios from 'axios'
 
 function AuthForm() {
   const [newUserForm, setNewUserForm] = useState("LOGIN");
@@ -12,7 +13,7 @@ function AuthForm() {
 
   const form = useForm({
     defaultValues: {
-      username: "",
+      name: "",
       email: "",
       password: "",
     },
@@ -42,6 +43,7 @@ function AuthForm() {
 
     if (newUserForm === "REGISTER") {
       // AXIOS REGISTER
+      axios.post('/api/register', data)
     }
   };
 
@@ -56,30 +58,33 @@ function AuthForm() {
         <BsMessenger />
       </div>
       <p className="font-bold text-2xl lg:text-4xl tracking-tight text-gray-900">
-        {newUserForm ? "Create an account" : "Sign in to your account"}
+        {newUserForm === "REGISTER"
+          ? "Create an account"
+          : "Sign in to your account"}
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mt-6 flex flex-col gap-3">
           {newUserForm === "REGISTER" && (
             <InputForm
-              id="username"
+              errors={errors}
+              id="name"
+              placeholder="Insert you name here"
               type="text"
-              label="Username"
+              label="Name"
               regis={{
-                ...register("username", {
-                  required: "Username is required",
+                ...register("name", {
+                  required: "Name is required",
                 }),
               }}
             />
           )}
-          {newUserForm === "REGISTER" && (
-            <p className="text-xs text-red-600">{errors.username?.message}</p>
-          )}
 
           <InputForm
+            errors={errors}
             id="email"
             type="email"
             label="Email address"
+            placeholder="Insert you email here"
             regis={{
               ...register("email", {
                 required: "Email is required",
@@ -91,11 +96,12 @@ function AuthForm() {
               }),
             }}
           />
-          <p className="text-xs text-red-600">{errors.email?.message}</p>
           <InputForm
+            errors={errors}
             id="password"
             type="password"
             label="Password"
+            placeholder="Insert you password here"
             regis={{
               ...register("password", {
                 required: "Password is required",
@@ -106,9 +112,9 @@ function AuthForm() {
               }),
             }}
           />
-          <p className="text-xs text-red-600">{errors.password?.message}</p>
         </div>
         <button
+          disabled={isLoading}
           type="submit"
           className="bg-[#007bff] w-full text-white p-1 rounded-md mt-4 hover:bg-opacity-60 flex flex-row gap-3 justify-center items-center"
         >
@@ -116,22 +122,28 @@ function AuthForm() {
           {isLoading && <AiOutlineLoading className="animate-spin" />}
         </button>
       </form>
-      <p className="mt-2 text-xs md:text-sm">or continue with</p>
+      <p className="mt-3 text-xs md:text-sm text-gray-500">or continue with</p>
       <div className="flex flex-row gap-2 w-full mt-2 ">
-        <button className="p-2 w-full text-2xl md:text-3xl  border drop-shadow-md flex justify-center">
+        <button
+          className="p-2 w-full text-2xl md:text-3xl  border drop-shadow-md flex justify-center"
+          onClick={() => socialAction("github")}
+        >
           <AiOutlineGithub />
         </button>
-        <button className="p-2 w-full text-2xl md:text-3xl border drop-shadow-md flex justify-center">
+        <button
+          className="p-2 w-full text-2xl md:text-3xl border drop-shadow-md flex justify-center"
+          onClick={() => socialAction("google")}
+        >
           <FcGoogle />
         </button>
       </div>
       <div className="flex justify-center items-center w-full text-xs lg:text-sm mt-1">
-        <p>
+        <p className="text-gray-500">
           {newUserForm === "REGISTER"
-            ? "Already had an account?"
-            : "New to Messenger?"}
+            ? "Already had an account? "
+            : "New to Messenger? "}
           <span className="hover:underline cursor-pointer" onClick={toggleForm}>
-            {newUserForm ? "Log in" : "Create an account"}
+            {newUserForm === "REGISTER" ? "Log in" : "Create an account"}
           </span>
         </p>
       </div>

@@ -1,20 +1,26 @@
-"use client"
+"use client";
 import React from "react";
-
+import { FieldErrors } from "react-hook-form";
 
 type inputType = {
   label: string;
   type: string;
-  id: string,
+  id: string;
   placeholder?: string;
   action?: () => {};
-  regis?: React.ComponentProps<'input'>
+  regis?: React.ComponentProps<"input">;
+  errors: FieldErrors;
 };
 
-function InputForm({ label, type, id, placeholder, action, regis }: inputType) {
-
-
-
+function InputForm({
+  label,
+  type,
+  id,
+  placeholder,
+  action,
+  regis,
+  errors,
+}: inputType) {
   return (
     <div className="flex flex-col gap-2">
       <label className="font-bold text-sm " htmlFor={id}>
@@ -22,12 +28,15 @@ function InputForm({ label, type, id, placeholder, action, regis }: inputType) {
       </label>
       <input
         id={id}
-        className="w-full p-2 focus:outline-none border drop-shadow-sm"
+        className={`w-full p-2 focus:outline-none border drop-shadow-sm placeholder:text-gray-400 ${
+          errors[id] && "border border-rose-500 rounded-md"
+        }`}
         type={type}
         onChange={action}
         placeholder={placeholder}
         {...regis}
       />
+      <p className="text-xs text-red-600">{errors[id]?.message as string}</p>
     </div>
   );
 }
