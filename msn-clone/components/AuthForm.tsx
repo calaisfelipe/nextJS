@@ -5,11 +5,14 @@ import InputForm from "@/components/InputForm";
 import { AiOutlineGithub, AiOutlineLoading } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 function AuthForm() {
+  const session = useSession();
+  const router = useRouter()
   const [newUserForm, setNewUserForm] = useState("LOGIN");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,6 +23,13 @@ function AuthForm() {
       password: "",
     },
   });
+
+  useEffect(() => {
+    if (session?.status === "authenticated") {
+      console.log("authenticated");
+      router.push('/users')
+    }
+  }, [session?.status, router]);
 
   const toggleForm = useCallback(() => {
     if (newUserForm === "LOGIN") {
@@ -52,6 +62,7 @@ function AuthForm() {
 
           if (callback?.ok && !callback?.error) {
             toast.success("Success loggin");
+            router.push('/users')
           }
         })
         .finally(() => setIsLoading(false));
@@ -66,6 +77,7 @@ function AuthForm() {
             toast(response.data.message);
           } else {
             toast.success("Account Created");
+            signIn('credentials', data)
           }
         })
         .catch(() => toast.error("Something went wrong"))
@@ -84,6 +96,7 @@ function AuthForm() {
 
         if (callback?.ok && !callback?.error) {
           toast.success("Success loggin");
+          router.push('/users')
         }
       })
       .finally(() => setIsLoading(false));
