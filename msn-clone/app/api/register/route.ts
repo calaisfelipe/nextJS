@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import prisma from "@/lib/prismadb";
 import { NextResponse } from "next/server";
 
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -12,6 +13,18 @@ export async function POST(request: Request) {
         status: 400,
       });
     }
+
+    const existingEmail = await prisma.user.findUnique({
+      where: {
+        email: email
+      }
+    })
+
+    if(existingEmail){
+      return NextResponse.json({"message": "Email already used"})
+    }
+
+
 
     const hashedPassword = await bcrypt.hash(password, 12);
 

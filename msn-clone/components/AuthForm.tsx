@@ -5,7 +5,9 @@ import InputForm from "@/components/InputForm";
 import { AiOutlineGithub, AiOutlineLoading } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
-import axios from 'axios'
+import { signIn } from "next-auth/react";
+import { toast } from "react-hot-toast";
+import axios from "axios";
 
 function AuthForm() {
   const [newUserForm, setNewUserForm] = useState("LOGIN");
@@ -39,17 +41,52 @@ function AuthForm() {
 
     if (newUserForm === "LOGIN") {
       //NEXT AUTH
+      signIn("credentials", {
+        ...data,
+        redirect: false,
+      })
+        .then((callback) => {
+          if (callback?.error) {
+            toast.error("Invalid Credentials");
+          }
+
+          if (callback?.ok && !callback?.error) {
+            toast.success("Success loggin");
+          }
+        })
+        .finally(() => setIsLoading(false));
     }
 
     if (newUserForm === "REGISTER") {
       // AXIOS REGISTER
-      axios.post('/api/register', data)
+      axios
+        .post("/api/register", data)
+        .then((response) => {
+          if (response.data.message === "Email already used") {
+            toast(response.data.message);
+          } else {
+            toast.success("Account Created");
+          }
+        })
+        .catch(() => toast.error("Something went wrong"))
+        .finally(() => setIsLoading(false));
     }
   };
 
   const socialAction = (action: string) => {
     setIsLoading(true);
     // nextAuth social sign In
+    signIn(action, { redirect: false })
+      .then((callback) => {
+        if (callback?.error) {
+          toast.error("Invalid Credentials");
+        }
+
+        if (callback?.ok && !callback?.error) {
+          toast.success("Success loggin");
+        }
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (

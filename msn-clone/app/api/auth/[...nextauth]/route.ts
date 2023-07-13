@@ -1,12 +1,12 @@
 import bcrypt from "bcrypt";
-import { AuthOptions } from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "@/lib/prismadb";
 
-const options: AuthOptions = {
+export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
@@ -52,11 +52,13 @@ const options: AuthOptions = {
       clientSecret: process.env.GOOBLE_SECRET_ID as string,
     }),
   ],
-  debug: process.env.NODE_ENV === 'development',
+  debug: process.env.NODE_ENV === "development",
   session: {
-    strategy: "jwt"
+    strategy: "jwt",
   },
-  secret: process.env.NEXTAUTH_SECRET
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
-export default options;
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
