@@ -1,6 +1,5 @@
 "use client";
 import { User } from "@prisma/client";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 import axios from "axios";
@@ -22,7 +21,7 @@ const UserBox = ({ data }: UserBoxType) => {
         userId: data.id,
       })
       .then((data) => {
-        router.push(`/conversations/${data.data.id}`);
+        router.push(`/conversation/${data.data.id}`);
       })
       .finally(() => setIsLoading(false));
   }, [data, router]);
