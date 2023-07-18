@@ -27,7 +27,7 @@ const ConversationId = async ({params}:{params: Iparams}) => {
     <div className="lg:pl-80 h-full">
     <div className="h-[100vh] flex flex-col">
         <HeaderConversation conversation={conversation} />
-        <BodyConversation />
+        <BodyConversation initialMessages={messages} />
         <FormConversation />
     </div>
 </div>

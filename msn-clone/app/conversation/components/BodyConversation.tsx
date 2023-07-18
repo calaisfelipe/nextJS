@@ -1,14 +1,24 @@
-"use client"
-import React from 'react'
-import {User, Conversation} from '@prisma/client'
+"use client";
+import React, { useState, useRef } from "react";
+import { FullMessageType } from "@/app/types";
+import useConversation from "@/app/hooks/useConversation";
+import MessageBox from "./MessageBox";
 
+type BodyConversationType = {
+  initialMessages: FullMessageType[];
+};
 
+const BodyConversation = ({ initialMessages }: BodyConversationType) => {
+  const [messages, setMessages] = useState(initialMessages);
 
-const BodyConversation = () => {
-  return (
-    <div className='flex-1 overflow-y-auto'
-    >BodyConversation</div>
-  )
-}
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const { conversationId } = useConversation();
 
-export default BodyConversation
+  return <div className="flex-1 overflow-y-auto">
+    {messages.map((message, i) => <MessageBox isLast={i === messages.length - 1} data={message} key={message.id} /> )}
+
+    <div ref={bottomRef} className="pt-24"/>
+  </div>;
+};
+
+export default BodyConversation;
