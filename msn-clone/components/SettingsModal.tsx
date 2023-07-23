@@ -82,7 +82,7 @@ const SettingsModal = ({ isOpen, currentUser, onClose }: SettingsModalType) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all ">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all ">
                   <div className="text-right">
                     <button onClick={() => onClose()}>
                       <AiOutlineClose
@@ -95,11 +95,11 @@ const SettingsModal = ({ isOpen, currentUser, onClose }: SettingsModalType) => {
                     <div>
                       <Dialog.Title
                         as="h3"
-                        className="text-lg font-semibold leading-7 text-gray-900 flex gap-2 items-center"
+                        className="text-xl font-semibold leading-7 text-gray-900 flex gap-2 items-center"
                       >
                         Profile
                       </Dialog.Title>
-                      <p className=" leading-6 text-sm text-gray-600 ">
+                      <p className=" leading-6 text-xs md:text-sm text-gray-500 ">
                         Edit your public Information
                       </p>
                     </div>
@@ -146,13 +146,19 @@ const SettingsModal = ({ isOpen, currentUser, onClose }: SettingsModalType) => {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-4 flex gap-2">
-                      <button
-                        type="submit"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-sky-200 px-4 py-2 text-sm font-medium text-sky-900 hover:bg-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+                    <div className="mt-4 flex gap-2 justify-end">
+                    <button
+                        type="button"
+                        className="rounded-md border border-transparent bg-gray-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-3   00 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
                         onClick={onClose}
                       >
-                        done
+                        Cancel
+                      </button>
+                      <button
+                        type="submit"
+                        className="rounded-md border border-transparent bg-sky-200 px-4 py-2 text-sm font-medium text-sky-900 hover:bg-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+                      >
+                        Save
                       </button>
                     </div>
                   </form>
