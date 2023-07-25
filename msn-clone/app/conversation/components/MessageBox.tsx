@@ -34,6 +34,8 @@ const MessageBox = ({ isLast, data }: MessageBoxType) => {
   return (
     <div className={container}>
       <div className={avatar}>
+        
+      
         <Avatar user={data.sender} />
       </div>
       <div className={body}>

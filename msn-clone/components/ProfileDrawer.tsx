@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import useConversation from "@/app/hooks/useConversation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import AvatarGroup from "./AvatarGroup";
 
 type ProfileDrawerType = {
   data: Conversation & { users: User[] };
@@ -19,7 +20,7 @@ type ProfileDrawerType = {
 };
 
 const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerType) => {
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
   const otherUser = useOtherUser(data);
   const joinedDate = useMemo(() => {
     return format(new Date(otherUser.createdAt), "PP");
@@ -39,28 +40,39 @@ const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerType) => {
 
   //Modal settings
 
-  const router = useRouter()
-  const {conversationId} = useConversation()
-  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter();
+  const { conversationId } = useConversation();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onDelete = useCallback(() =>{
-      setIsLoading(true)
+  const onDelete = useCallback(() => {
+    setIsLoading(true);
 
-      axios.delete(`/api/conversations/${conversationId}`).then(() => {
-        onClose()
-        router.push('/conversation')
-        router.refresh()
-      }).catch(() => {
-        toast.error('Something went wrong')
-        setOpenModal(false)
-      }).finally(() => setIsLoading(false))
-  }, [conversationId, router, onClose])
-
+    axios
+      .delete(`/api/conversations/${conversationId}`)
+      .then(() => {
+        onClose();
+        router.push("/conversation");
+        router.refresh();
+      })
+      .catch(() => {
+        toast.error("Something went wrong");
+        setOpenModal(false);
+      })
+      .finally(() => setIsLoading(false));
+  }, [conversationId, router, onClose]);
 
   return (
     <>
-      <Modal isOpen={openModal} onClose={() => setOpenModal(false)} title="Delete confirmation" message="Are you sure you want to delete this conversation? This action cannot be undone." btn1={{title:'Yes', action: onDelete}} btn2={{title: 'Cancel', action: () => setOpenModal(false)}} loading={isLoading}/>
-        
+      <Modal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+        title="Delete confirmation"
+        message="Are you sure you want to delete this conversation? This action cannot be undone."
+        btn1={{ title: "Yes", action: onDelete }}
+        btn2={{ title: "Cancel", action: () => setOpenModal(false) }}
+        loading={isLoading}
+      />
+
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={onClose}>
           <Transition.Child
@@ -108,7 +120,11 @@ const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerType) => {
                       >
                         <div className="flex flex-col items-center">
                           <div className="mb-2 ">
-                            <Avatar user={otherUser} />
+                            {data.isGroup ? (
+                              <AvatarGroup users={data.users} />
+                            ) : (
+                              <Avatar user={otherUser} />
+                            )}
                           </div>
                           <div>{title}</div>
                           <div className="text-xs md:text-sm text-gray-500">
@@ -129,6 +145,20 @@ const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerType) => {
                           </div>
                           <div className="w-full pt-5 pb-5 sm:px-0 sm:pt-0 ">
                             <dl className="space-y-8 px-4 sm:space-y-6 sm:px-6">
+                              {data.isGroup && (
+                                <div>
+                                  <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
+                                    Emails
+                                  </dt>
+                                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
+                                    <ul className="flex flex-col gap-1 text-gray-900 text-sm font-medium">
+                                      {data.users.map((user) => 
+                                        <li key={user.id}>{user.email}</li>
+                                      )}
+                                    </ul>
+                                  </dd>
+                                </div>
+                              )}
                               {!data.isGroup && (
                                 <div>
                                   <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">

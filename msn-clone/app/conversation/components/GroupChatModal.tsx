@@ -34,6 +34,7 @@ const GroupChatModal = ({ isOpen, onClose, users }: groupModalType) => {
   });
 
   const members = watch("members");
+  const name = watch("name")
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
@@ -75,7 +76,7 @@ const GroupChatModal = ({ isOpen, onClose, users }: groupModalType) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all ">
+                <Dialog.Panel className="w-full max-w-md transform  rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all ">
                   <div className="text-right">
                     <button onClick={() => onClose()}>
                       <AiOutlineClose
@@ -103,7 +104,7 @@ const GroupChatModal = ({ isOpen, onClose, users }: groupModalType) => {
                         label='Name'
                         type="text"
                         id="name"
-                        
+                        placeholder="Group name"
                         errors={errors}
 
                         />
@@ -134,8 +135,9 @@ const GroupChatModal = ({ isOpen, onClose, users }: groupModalType) => {
                     </button>
                     <button
                       type="submit"
-                      className="rounded-md border border-transparent bg-sky-200 px-4 py-2 text-sm font-medium text-sky-900 hover:bg-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+                      className="rounded-md border border-transparent bg-sky-200 px-4 py-2 text-sm font-medium text-sky-900 hover:bg-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 disabled:bg-gray-400"
                       onClick={onClose}
+                      disabled={!isLoading && name && members.length > 0 ? false : true}
                     >
                       Create Group
                     </button>

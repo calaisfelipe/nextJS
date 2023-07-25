@@ -28,7 +28,7 @@ function InputForm({
       </label>
       <input
         id={id}
-        className={`w-full p-2  focus:outline-none focus:border-sky-500 focus:ring-2 focus:rounded-md  drop-shadow-sm placeholder:text-gray-400 ${
+        className={`w-full p-2 border focus:outline-none focus:border-sky-500 focus:ring-2 focus:rounded-md  drop-shadow-sm placeholder:text-gray-400 ${
           errors[id] && "border border-rose-500 rounded-md "
         }`}
         type={type}

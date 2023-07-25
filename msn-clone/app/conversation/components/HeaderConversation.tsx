@@ -7,6 +7,7 @@ import { HiChevronLeft } from "react-icons/hi";
 import Avatar from "@/components/Avatar";
 import { HiEllipsisHorizontal } from "react-icons/hi2";
 import ProfileDrawer from "@/components/ProfileDrawer";
+import AvatarGroup from "@/components/AvatarGroup";
 
 type ConversationHeaderType = {
   conversation: Conversation & {
@@ -37,7 +38,8 @@ const HeaderConversation = ({ conversation }: ConversationHeaderType) => {
               <HiChevronLeft size={32} />
             </Link>
 
-            <Avatar user={otherUser} />
+            {conversation.isGroup ? <AvatarGroup users={conversation.users} /> : <Avatar user={otherUser} /> }
+            
             <div className="flex flex-col">
               {conversation.name || otherUser.name}
               <div className="text-sm font-light text-neutral-500">
