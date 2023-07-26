@@ -137,7 +137,7 @@ const GroupChatModal = ({ isOpen, onClose, users }: groupModalType) => {
                       type="submit"
                       className="rounded-md border border-transparent bg-sky-200 px-4 py-2 text-sm font-medium text-sky-900 hover:bg-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 disabled:bg-gray-400"
                       onClick={onClose}
-                      disabled={!isLoading && name && members.length > 0 ? false : true}
+                      disabled={!isLoading && name && members.length > 2 ? false : true}
                     >
                       Create Group
                     </button>

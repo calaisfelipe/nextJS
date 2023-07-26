@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 import axios from "axios";
 import Avatar from "./Avatar";
+import LoadingModal from "./LoadingModal";
 
 type UserBoxType = {
   data: User;
@@ -27,6 +28,8 @@ const UserBox = ({ data }: UserBoxType) => {
   }, [data, router]);
 
   return (
+    <>
+    {isLoading && <LoadingModal onClose={() => setIsLoading(false)}/>} 
     <div
       onClick={handleClick}
       className="w-full relative flex items-center sparce-x-3 bg-white p-3 hover:bg-neutral-100 rounderd-lg transition cursor-pointer "
@@ -42,6 +45,7 @@ const UserBox = ({ data }: UserBoxType) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
