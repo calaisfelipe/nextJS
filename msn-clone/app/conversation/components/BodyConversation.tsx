@@ -4,6 +4,8 @@ import { FullMessageType } from "@/app/types";
 import useConversation from "@/app/hooks/useConversation";
 import MessageBox from "./MessageBox";
 import axios from "axios";
+import { pusherClient } from "@/lib/pusher";
+import { find } from "lodash";
 
 type BodyConversationType = {
   initialMessages: FullMessageType[];
@@ -16,14 +18,67 @@ const BodyConversation = ({ initialMessages }: BodyConversationType) => {
   const { conversationId } = useConversation();
 
   useEffect(() => {
-      axios.post(`/api/conversations/${conversationId}/seen`)
-  }, [conversationId])
+    axios.post(`/api/conversations/${conversationId}/seen`);
+  }, [conversationId]);
 
-  return <div className="flex-1 overflow-y-auto">
-    {messages.map((message, i) => <MessageBox isLast={i === messages.length - 1} data={message} key={message.id} /> )}
+  useEffect(() => {
+    pusherClient.subscribe(conversationId);
+    bottomRef?.current?.scrollIntoView();
 
-    <div ref={bottomRef} className="pt-24"/>
-  </div>;
+    const messageHandler = (message: FullMessageType) => {
+      axios.post(`/api/conversations/${conversationId}/seen`);
+
+      setMessages((current) => {
+        if (find(current, { id: message.id })) {
+          return current;
+        }
+
+        return [...current, message];
+      });
+
+      bottomRef?.current?.scrollIntoView();
+      
+
+    };
+
+    const updateMessageHandler = (newMessage: FullMessageType) => {
+      
+      setMessages((current) => current.map((currentMessage) => {
+        if(currentMessage.id === newMessage.id){
+          return newMessage
+        }
+
+        return currentMessage
+      })
+      
+      
+      )
+
+    }
+
+    pusherClient.bind("messages:new", messageHandler);
+    pusherClient.bind('message:update', updateMessageHandler)
+
+    return () => {
+      pusherClient.unsubscribe(conversationId);
+      pusherClient.unbind("messages:new", messageHandler);
+      pusherClient.unbind("messages:update", updateMessageHandler);
+    };
+  }, [conversationId]);
+
+  return (
+    <div className="flex-1 overflow-y-auto">
+      {messages.map((message, i) => (
+        <MessageBox
+          isLast={i === messages.length - 1}
+          data={message}
+          key={message.id}
+        />
+      ))}
+
+      <div ref={bottomRef} className="pt-24" />
+    </div>
+  );
 };
 
 export default BodyConversation;
