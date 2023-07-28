@@ -12,6 +12,7 @@ import useConversation from "@/app/hooks/useConversation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import AvatarGroup from "./AvatarGroup";
+import useActiveList from "@/app/hooks/useActiveList";
 
 type ProfileDrawerType = {
   data: Conversation & { users: User[] };
@@ -22,6 +23,11 @@ type ProfileDrawerType = {
 const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerType) => {
   const [openModal, setOpenModal] = useState(false);
   const otherUser = useOtherUser(data);
+
+  const {members} = useActiveList()
+
+  const isActive = members.indexOf(otherUser?.email!) !== -1
+
   const joinedDate = useMemo(() => {
     return format(new Date(otherUser.createdAt), "PP");
   }, [otherUser.createdAt]);
@@ -35,8 +41,8 @@ const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerType) => {
       return `${data.users.length} members`;
     }
 
-    return "Active";
-  }, [data]);
+    return isActive ?  "Active" : 'Offline';
+  }, [data, isActive]);
 
   //Modal settings
 
