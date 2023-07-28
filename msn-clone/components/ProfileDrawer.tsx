@@ -50,15 +50,18 @@ const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerType) => {
     axios
       .delete(`/api/conversations/${conversationId}`)
       .then(() => {
-        onClose();
-        router.push("/conversation");
         router.refresh();
+        setOpenModal(false)
+        router.push("/conversation"); 
       })
       .catch(() => {
         toast.error("Something went wrong");
         setOpenModal(false);
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false)
+        onClose()
+      });
   }, [conversationId, router, onClose]);
 
   return (
