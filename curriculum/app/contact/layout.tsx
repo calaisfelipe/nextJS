@@ -1,24 +1,24 @@
-import React from 'react'
-import AsideBar from '@/components/AsideBar'
-import SideBar from '@/components/SideBar'
+import React from "react";
+import AsideBar from "@/components/AsideBar";
+import SideBar from "@/components/SideBar";
 
 type aboutMeLayoutType = {
-    children: React.ReactNode
-    
-}
+  children: React.ReactNode;
+};
 
 export const metadata = {
-  title: 'Contact'
-}
+  title: "Contact",
+};
 
-const ContactLayout = ({children}: aboutMeLayoutType) => {
+const ContactLayout = ({ children }: aboutMeLayoutType) => {
   return (
-    <div className='flex bg-gray-200'>
-        <AsideBar meta={metadata.title}/>
-        <SideBar meta={metadata.title} />
-        {children}
-    </div>
-  )
-}
+    <div className="flex bg-gray-200">
+      <AsideBar meta={metadata.title} />
+      <SideBar meta={metadata.title} />
 
-export default ContactLayout
+      {children}
+    </div>
+  );
+};
+
+export default ContactLayout;

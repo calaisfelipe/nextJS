@@ -18,8 +18,8 @@ const aboutMePage = () => {
   const tecnologies = [css, js, ts, html5, reactLogo, tailwind, nextlogo, git];
 
   return (
-    <div className="md:h-screen w-full bg-gray-200 flex justify-center  p-3">
-      <div className="flex flex-col gap-2 justify-center items-center xl:w-[70%] md:w-[80%] w-full">
+    <div className="md:h-screen w-full bg-gray-200 flex justify-center ">
+      <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full">
         <Tittle text="Sobre mim" />
 
         <div className="text-center">

@@ -7,7 +7,8 @@ type TittleType = {
 
 const Tittle = ({text}: TittleType) => {
   return (
-    <div className='w-fit 
+    <div className='
+    w-full
     text-center 
     py-1 
     border-dashed 
@@ -32,9 +33,6 @@ const Tittle = ({text}: TittleType) => {
     xl:px-20
     
     '
-    
-
-    
     
     >{text}</div>
   )
