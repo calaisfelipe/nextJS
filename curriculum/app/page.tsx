@@ -33,9 +33,9 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col w-80 sm:w-96 lg:w-auto">
-          <p className="text-3xl font-bold xl:text-4xl ">HI THERE!</p>
-          <p className="text-4xl xl:text-5xl font-bold mb-1 uppercase">       
-            I&apos;m 
+          <p className="text-4xl font-bold xl:text-4xl ">Olá,</p>
+          <p className="text-2xl xl:text-5xl font-bold mb-1 ">       
+            Eu sou o
             <span className={`${monoton.className} text-yellow-500 ml-2`}>
                Felipe Calais
             </span>
