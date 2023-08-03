@@ -7,12 +7,12 @@ import Link from "next/link";
 
 const ContactPage = () => {
   return (
-    <div className="sm:h-screen flex justify-center  bg-gray-200 w-full">
+    <div className="sm:h-screen flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full">
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full">
         <Tittle text="Contato" />
         <div className="flex flex-col w-full mt-3">
           <div className="text-lg">Sinta-se <span className="font-bold">livre</span> para entrar em contato</div>
-          <p className="text-sm text-gray-500">Espero que possamos trabalhar juntos no seu próximo projeto.</p>
+          <p className="ld:text-md text-sm text-gray-500 dark:text-gray-300">Espero que possamos trabalhar juntos no seu próximo projeto.</p>
         </div>
 
           <div className="flex md:flex-row flex-col gap-16 mt-8 w-full justify-center">
@@ -47,7 +47,7 @@ const ContactPage = () => {
 
 
           </div>
-          <div className="text-4xl font-bold w-full text-center mt-8">Obrigado pela visita</div>
+          <div className="text-4xl font-bold w-full text-center mt-8 uppercase">Obrigado pela visita</div>
 
 
       </div>

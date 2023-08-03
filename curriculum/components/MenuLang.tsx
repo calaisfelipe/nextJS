@@ -1,19 +1,29 @@
 "use client";
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useState} from "react";
+import { Fragment, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
+import Image from "next/image";
+import BR from "@/public/images/flag-brazil.png";
+import USA from "@/public/images/flag-usa.png";
 
 export default function MenuLang() {
-const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+
+
 
   return (
-    <div className="fixed top-1 w-56 text-right">
+    <div className="w-fit ">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75" onClick={() => setIsOpen(!isOpen)}>
+          <Menu.Button
+            className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             Idioma
             <BsChevronDown
-              className={`ml-2 -mr-1 h-5 w-5 ${isOpen ? 'transition rotate-180' : 'transition rotate-0'}`}
+              className={`ml-2 -mr-1 h-5 w-5 ${
+                isOpen ? "transition rotate-180" : "transition rotate-0"
+              }`}
               aria-hidden="true"
             />
           </Menu.Button>
@@ -27,13 +37,29 @@ const [isOpen, setIsOpen] = useState(false)
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 mt-2 w-24 origin-top-right divide-y divide-gray-100 rounded-md bg-transparent shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="px-1 py-1 flex flex-col ">
+          <Menu.Items className="absolute right-0 mt-2 w-fit origin-top-right divide-y divide-gray-100 rounded-md bg-transparent shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div className="px-1 py-1 flex flex-col gap-1  ">
               <Menu.Item>
-                <button>USA</button>
+                <button>
+                  <Image
+                    src={USA}
+                    width={36}
+                    height={36}
+                    alt="English"
+                    className="hover:scale-110"
+                  />
+                </button>
               </Menu.Item>
               <Menu.Item>
-                <button>BR</button>
+                <button>
+                  <Image
+                    src={BR}
+                    width={36}
+                    height={36}
+                    alt="Português"
+                    className="hover:scale-110"
+                  />
+                </button>
               </Menu.Item>
             </div>
           </Menu.Items>
@@ -42,5 +68,3 @@ const [isOpen, setIsOpen] = useState(false)
     </div>
   );
 }
-
-

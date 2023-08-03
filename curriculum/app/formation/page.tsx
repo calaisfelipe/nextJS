@@ -4,13 +4,13 @@ import FormationBox from "@/components/FormationBox";
 
 const formationPage = () => {
   return (
-    <div className="md:h-screen flex justify-center  bg-gray-200 w-full">
+    <div className="md:h-screen flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full">
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full ">
         <Tittle text="Formação" />
 
         <div className="flex flex-col w-full">
           <div>
-            <h4 className="uppercase font-bold text-md">Escolaridade</h4>
+            <h4 className="uppercase font-bold text-md dark:text-blue-400">Escolaridade</h4>
             <div className="flex sm:flex-row flex-col gap-4">
               <FormationBox
                 title="Cotemig - Belo horizonte/MG"
@@ -31,7 +31,7 @@ const formationPage = () => {
           </div>
 
           <div className="mt-4">
-          <h4 className="uppercase font-bold text-md">Experiências</h4>
+          <h4 className="uppercase font-bold text-md dark:text-blue-400">Experiências</h4>
           <div className="flex sm:flex-row flex-col  gap-4">
             <FormationBox
               title="Realteq - Automação comercial"

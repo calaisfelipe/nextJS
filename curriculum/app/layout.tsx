@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 
 
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,10 +23,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} relative`}>
+        
         <Navbar />
         <Suspense fallback={<Loading />}>
         {children}
         </Suspense>
+        
       </body>
     </html>
   );

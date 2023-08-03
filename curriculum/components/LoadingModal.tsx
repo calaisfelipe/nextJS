@@ -20,12 +20,14 @@ const LoadingModal = ({onClose}: LoadingModalType) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
         > 
-        <div className="fixed inset-0 bg-white bg-opacity-50 transition-opacity" />
+        <div className="fixed inset-0 bg-gray-200 dark:bg-gray-700  bg-opacity-50 transition-opacity" />
            <div className="fixed inset-0 z-10 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
 
             <Dialog.Panel>
-                <ClipLoader size={60} color='#EAB308'  />
+                <ClipLoader size={60}
+                  
+                  />
 
             </Dialog.Panel>
 

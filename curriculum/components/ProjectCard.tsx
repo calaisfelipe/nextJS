@@ -1,23 +1,25 @@
 import React from "react";
-import { BsFillPlayFill } from "react-icons/bs";
 import Image from "next/image";
-import commingsoon from '@/public/images/commingSoon.jpg'
+import commingsoon from "@/public/images/commingSoon.jpg";
+import Link from "next/link";
 
 type ProjectCardtype = {
   project: {
     title: string;
     thumbnailUrl?: any;
-    isInBuild?: boolean
-    tecnologies?: any[]
+    isInBuild?: boolean;
+    tecnologies?: any[];
+    description?: string;
+    link:string
   };
 };
 
 const ProjectCard = ({ project }: ProjectCardtype) => {
   return (
-    <div className="group bg-white col-span relative h-[12vw] ">
+    <div className="group bg-white dark:bg-transparent col-span relative sm:h-[12vw] h-full ">
       <Image
-        className="
-      cursor-pointer
+        className={
+      `cursor-pointer
       object-cover
       transition
       duration 
@@ -26,11 +28,17 @@ const ProjectCard = ({ project }: ProjectCardtype) => {
       group-hover:opacity-90
       sm:group-hover:opacity-0
       delay-300
-      w-fit
-      h-fit
-      "
-        width={188}
-        height={288}
+      w-full
+      h-full
+      lg:w-fit
+      lg:h-fit
+      ${project.isInBuild ? 'opacity-50 hover:opacity-100' : '' }
+      `
+      }
+      
+        width={150}
+        height={150}
+       
         src={project.isInBuild ? commingsoon : project.thumbnailUrl}
         alt={`${project.title} thumbnail`}
       />
@@ -52,8 +60,9 @@ const ProjectCard = ({ project }: ProjectCardtype) => {
         w-fit
         h-fit
         "
-        width={288}
-        height={188}
+        width={150}
+        height={150}
+          
           src={project.isInBuild ? commingsoon : project.thumbnailUrl}
           alt={`${project.title} thumbnail`}
         />
@@ -72,28 +81,34 @@ const ProjectCard = ({ project }: ProjectCardtype) => {
         "
         >
           <div className="flex flex-row items-center gap-3">
-
-            {project.isInBuild ? '' : <div
-              className="cursor-pointer
-            w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full flex justify-center items-center transition hover:bg-neutral-300"
-            >
-             <BsFillPlayFill />
-            </div> }
             
 
-            <p className="text-white font-semibold">{project.title}</p>
+            <p className={`text-white opacity-80 font-semibold hover:opacity-100 hover:scale-110 ${project.isInBuild && 'pointer-events-none'}`}><Link href={project.link} target="_blank" >{project.title}</Link></p>
           </div>
 
-          {project.isInBuild ? <p className="text-red-400 font-semibold mt-4">
-            Em breve
-          </p> : <p className="text-green-400 font-semibold mt-4">
-            New <span className="text-white"> 2023</span>
-          </p>}
-          
+          {project.isInBuild ? (
+            <p className="text-red-400 font-semibold mt-4">Em breve</p>
+          ) : (
+            <p className="text-green-400 font-semibold mt-4">
+              New <span className="text-white"> 2023</span>
+            </p>
+          )}
 
-         
           <div className="flex flex-row gap-2 items-center mt-1">
-            {project.tecnologies?.map((tecno, index) => <Image key={index} src={tecno} height={18} width={18} className="hover:scale-125 cursor-pointer" alt='tecnologie' />)}
+            {project.description}
+          </div>
+
+          <div className="flex flex-row gap-2 items-center mt-1">
+            {project.tecnologies?.map((tecno, index) => (
+              <Image
+                key={index}
+                src={tecno}
+                height={18}
+                width={18}
+                className="hover:scale-125 cursor-pointer"
+                alt="tecnologie"
+              />
+            ))}
           </div>
         </div>
       </div>
