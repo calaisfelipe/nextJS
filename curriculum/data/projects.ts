@@ -21,7 +21,7 @@ export const projectsFirstRow = [
     thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/5/5f/Rocketlandpage.png",
     tecnologies: [html5, css, js, reactLogo, tailwind],
-    link: '#'
+    link: 'https://projetos-web-rockets.vercel.app/'
   },
   { title: "Projeto 3", isInBuild: true, link: '#' },
   { title: "Projeto 4", isInBuild: true, link: '#' },

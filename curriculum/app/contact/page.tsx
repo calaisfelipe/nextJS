@@ -47,7 +47,7 @@ const ContactPage = () => {
 
 
           </div>
-          <div className="text-4xl font-bold w-full text-center mt-8 uppercase">Obrigado pela visita</div>
+          <div className="text-4xl font-bold w-full text-center mt-8 mb-8 uppercase">Obrigado pela visita</div>
 
 
       </div>

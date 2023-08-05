@@ -1,22 +1,44 @@
 "use client";
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useContext } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import Image from "next/image";
 import BR from "@/public/images/flag-brazil.png";
 import USA from "@/public/images/flag-usa.png";
+import { LanguageContext } from "@/context/language";
 
 export default function MenuLang() {
   const [isOpen, setIsOpen] = useState(false);
+  const language = useContext(LanguageContext);
 
+  const languageEn = () => {
+    const getlang = localStorage.getItem("language");
 
+    if (!getlang) {
+      localStorage.setItem("language", "EN");
+      language.dispatch({ type: "CHANGE_LANG" });
+    }
+
+    return;
+  };
+
+  const languageBr = () => {
+    const getlang = localStorage.getItem("language");
+
+    if (getlang) {
+      localStorage.removeItem("language");
+      language.dispatch({ type: "RESET" });
+    }
+
+    return;
+  };
 
   return (
-    <div className="w-fit ">
-      <Menu as="div" className="relative inline-block text-left">
+    <div className="w-fit">
+      <Menu as="div" className="relative inline-block text-left" >
         <div>
           <Menu.Button
-            className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 sm:py-2 py-1 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
             onClick={() => setIsOpen(!isOpen)}
           >
             Idioma
@@ -40,7 +62,7 @@ export default function MenuLang() {
           <Menu.Items className="absolute right-0 mt-2 w-fit origin-top-right divide-y divide-gray-100 rounded-md bg-transparent shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 flex flex-col gap-1  ">
               <Menu.Item>
-                <button>
+                <button onClick={languageEn}>
                   <Image
                     src={USA}
                     width={36}
@@ -51,7 +73,7 @@ export default function MenuLang() {
                 </button>
               </Menu.Item>
               <Menu.Item>
-                <button>
+                <button onClick={languageBr}>
                   <Image
                     src={BR}
                     width={36}
