@@ -1,7 +1,10 @@
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import Image from "next/image";
 import commingsoon from "@/public/images/commingSoon.jpg";
 import Link from "next/link";
+import useContextLanguage from "@/hooks/useContextLanguage";
+import { useRouter } from "next/navigation";
 
 type ProjectCardtype = {
   project: {
@@ -15,6 +18,16 @@ type ProjectCardtype = {
 };
 
 const ProjectCard = ({ project }: ProjectCardtype) => {
+
+  const language = useContextLanguage()
+  const router = useRouter()
+
+  useEffect(() => {
+
+    router.refresh()
+
+  }, [language, router])
+
   return (
     <div className="group bg-white dark:bg-transparent col-span relative sm:h-[12vw] h-full ">
       <Image
@@ -87,7 +100,7 @@ const ProjectCard = ({ project }: ProjectCardtype) => {
           </div>
 
           {project.isInBuild ? (
-            <p className="text-red-400 font-semibold mt-4">Em breve</p>
+            <p className="text-red-400 font-semibold mt-4 uppercase">{language.state === 'EN' ? 'Coming soon': 'Em breve'}</p>
           ) : (
             <p className="text-green-400 font-semibold mt-4">
               New <span className="text-white"> 2023</span>
