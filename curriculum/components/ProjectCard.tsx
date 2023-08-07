@@ -48,7 +48,6 @@ const ProjectCard = ({ project }: ProjectCardtype) => {
       ${project.isInBuild ? 'opacity-50 hover:opacity-100' : '' }
       `
       }
-      
         width={150}
         height={150}
        
