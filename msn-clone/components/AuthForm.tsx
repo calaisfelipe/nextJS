@@ -78,6 +78,7 @@ function AuthForm() {
           } else {
             toast.success("Account Created");
             signIn('credentials', data)
+            
           }
         })
         .catch(() => toast.error("Something went wrong"))

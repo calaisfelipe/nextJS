@@ -2,7 +2,7 @@ import { options } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 import UserCard from "@/components/UserCard";
 import { redirect } from "next/navigation";
-
+ 
 export default async function serverPage() {
     const session = await getServerSession(options);
   
