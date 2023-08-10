@@ -30,8 +30,8 @@ export function UserRegisterForm({ className, ...props }: UserAuthFormProps) {
     axios
       .post("/api/register", data)
       .then((res) => {
-        if (res.data.message === "Email already used") {
-          toast({title:`${res.data.message}`});
+        if (res.data === 'Email already used') {
+          toast({title:`Email already used`});
         } else{
           toast({title:'Account Created'});
           signIn("credentials", {...data, redirect:false} ).then((res) => {

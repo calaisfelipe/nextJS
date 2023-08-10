@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     });
 
     if (existingUser) {
-      return NextResponse.json("Email already used");
+      return  NextResponse.json("Email already used");
     }
 
     const hashedPassword = await bcrypt.hash(password, 12)

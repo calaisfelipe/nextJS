@@ -24,8 +24,6 @@ export const options: NextAuthOptions = {
       },
       async authorize(credentials, req): Promise<any> {
         console.log("authorize method", credentials);
-        //const user = { password: "123456", email: "teste@example.com", name:'teste' };
-
         
         if(!credentials?.email || !credentials?.password){
           throw new Error('Missing credentials')
@@ -60,6 +58,9 @@ export const options: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
-  //secret: process.env.SECRET,
+  pages:{
+    signIn:'/login'
+  },
+  secret: process.env.NEXTAUTH_SECRET as string,
   debug: process.env.NODE_ENV === "development",
 };
