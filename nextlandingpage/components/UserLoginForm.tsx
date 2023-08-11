@@ -42,6 +42,7 @@ export function UserLoginForm({ className, ...props }: UserAuthFormProps) {
 
         if(callback?.ok &&  !callback.error){
           toast({title:'Succesfull Login'})
+          router.refresh()
           router.push('/')
         }
         

@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 export default async function serverPage() {
     const session = await getServerSession(options);
   
-    if(!session){
+    if(!session){ 
         redirect('/api/auth/signin?callbackUrl=/server')
     }
   

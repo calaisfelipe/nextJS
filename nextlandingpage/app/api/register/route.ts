@@ -19,11 +19,10 @@ export async function POST(request: Request) {
     });
 
     if (existingUser) {
-      return  NextResponse.json("Email already used");
+      return NextResponse.json("Email already used");
     }
 
-    const hashedPassword = await bcrypt.hash(password, 12)
-
+    const hashedPassword = await bcrypt.hash(password, 12);
 
     const createUser = await prismadb.user.create({
       data: {

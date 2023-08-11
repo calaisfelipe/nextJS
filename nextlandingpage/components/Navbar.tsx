@@ -25,7 +25,7 @@ const Navbar = () => {
                 </AvatarFallback>
               </Avatar>
             </PopoverTrigger>
-            <PopoverContent className="flex flex-col">
+            <PopoverContent className="flex flex-col bg-gray-200">
               {user ? (
                 <div>
                   <p>Hello,{user?.name}</p>
@@ -35,13 +35,16 @@ const Navbar = () => {
                 "Hello Guest"
               )}
 
+                <div className="mt-2">
               {!user ? (
                 <Link href="/login">Login</Link>
               ) : (
-                <Button variant={"ghost"} onClick={() => signOut()}>
+                <Button variant={"destructive"} onClick={() => signOut()}>
                   Log out
                 </Button>
+                
               )}
+              </div>
             </PopoverContent>
           </Popover>
         </div>
