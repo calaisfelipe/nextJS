@@ -31,8 +31,8 @@ const AboutMePage = () => {
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full">
         <Tittle text={language.state === "EN" ? `About me` : "Sobre mim"} />
 
-        <div className="text-center">
-          <p className="text-lg">
+        <div className="w-full mt-2">
+          <p className="text-2xl">
             {language.state === "EN" ? `I'm ` : "Eu sou o "}
             <span className=" font-bold text-lg dark:text-blue-400">
               Felipe Calais
@@ -44,12 +44,12 @@ const AboutMePage = () => {
           <p className="text-sm text-gray-600 dark:text-gray-300">
             {language.state === "EN"
               ? "A technology enthusiast, passionate about programming and its challenges. I like to create and solve problems. I study and keep myself updated with the best technologies of today."
-              : "Um entusiasta por tecnologia, apaixonado pela programação e seus desafios. Gosto de criar e resolver problemas. Estudo e me mantenho atualizado com as melhores tecnologias da atualidade."}
+              : "Um entusiasta por tecnologia, apaixonado pela programação e seus desafios. Gosto de criar e resolver problemas. Estudo e me mantenho atualizado com as melhores tecnologias da atualidade. Programação e desenvolvimento é o meu foco mas tenho buscado me especializ em UX/UI e design. Meu objetivo é me tornar o profissional web mais completo possivel."}
           </p>
         </div>
         <div className="flex md:flex-row flex-col gap-2 mt-2 w-full">
-          <div className="grid lg:grid-cols-2 grid-cols-1  bg-gray-900 md:max-w-[60%] max-w-full p-2 border gap-4 border-yellow-500 dark:border-blue-900  ">
-            <div className="flex flex-col justify-center items-center p-2 ">
+          <div className="grid lg:grid-cols-2 grid-cols-1  bg-transparent md:max-w-[60%] max-w-full gap-[1px] ">
+            <div className="flex flex-col justify-center items-center p-2 bg-black">
               <span className="text-6xl text-yellow-500 dark:text-blue-400">
                 8+
               </span>
@@ -60,12 +60,12 @@ const AboutMePage = () => {
               </p>
             </div>
 
-            <div className="grid-cols-4 grid gap-2 p-2 ">
+            <div className="grid-cols-4 grid gap-2 p-2 bg-black">
               {tecnologies.map((tec, index) => (
                 <Image
                   src={tec}
-                  height={24}
-                  width={44}
+                  height={20}
+                  width={40}
                   alt="tecnologies logo"
                   key={index}
                   className="cursor-pointer transition hover:scale-125 m-1"
@@ -73,8 +73,8 @@ const AboutMePage = () => {
               ))}
             </div>
 
-            <div className="flex flex-col justify-center items-center p-2 ">
-              <span className="text-6xl text-yellow-500 dark:text-blue-400">
+            <div className="flex flex-col justify-center items-center p-2 bg-black">
+              <span className="text-6xl text-yellow-500 dark:text-blue-400 ">
                 40+
               </span>
               <p className="uppercase text-white text-[9px] ">
@@ -84,7 +84,7 @@ const AboutMePage = () => {
               </p>
             </div>
 
-            <div className="flex flex-col justify-center items-center p-2  ">
+            <div className="flex flex-col justify-center items-center p-2 bg-black  ">
               <span className="text-6xl text-yellow-500 dark:text-blue-400">
                 1.2
               </span>
@@ -96,8 +96,8 @@ const AboutMePage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center ml-2">
-            <h3 className="font-bold text-lg dark:text-blue-400">
+          <div className="flex flex-col justify-center ml-2 p-2">
+            <h3 className="font-bold text-2xl dark:text-blue-400 mb-2">
               {language.state === "EN" ? `What I Do?` : "Oque eu faço?"}
             </h3>
             <div className="flex flex-col gap-1">

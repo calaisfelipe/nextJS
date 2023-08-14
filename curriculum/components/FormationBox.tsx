@@ -1,24 +1,32 @@
-'use client'
-import React from 'react'
+"use client";
+import React from "react";
 
 type FormationBoxType = {
-    title: string
-    subtitle: string
-    description: string
-}
+  duration?: string;
+  title: string;
+  subtitle: string;
+  description: string;
+};
 
-const FormationBox = ({title,subtitle,description}: FormationBoxType) => {
+const FormationBox = ({
+  title,
+  subtitle,
+  description,
+  duration,
+}: FormationBoxType) => {
   return (
-    <div className='flex flex-col lg:w-80 md:w-48 sm:w-36 w-full  sm:p-0 p-2 mt-2 gap-1'>
-        <div className='text-white bg-yellow-500 dark:bg-blue-900  p-1 font-bold'>
-            {title}
-        </div>
-        <h5 className='font-bold text-md dark:text-gray-300'>{subtitle}</h5>
-        <p className='text-sm text-gray-500 dark:text-gray-300'>{description}</p>
+    <div className="flex flex-col lg:w-80 md:w-48 sm:w-36 w-full p-2 mt-2 gap-1 bg-black justify-center ">
 
-
+      <h3 className="text-yellow-500 dark:text-blue-400 text-lg font-bold">{duration}</h3>
+      <div className="text-white font-extrabold text-lg">{subtitle}</div>
+      <h5 className="font-bold text-xs text-gray-400 uppercase tracking-wider">
+        {title}
+      </h5>
+      <p className="text-sm text-gray-500 tracking-tight">
+        {description}
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default FormationBox
+export default FormationBox;

@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.clippy{
+  
+    clip-path: polygon(49% 100%, 0 29%, 86% 15%);
+}
+
+.clippyMobile{
+    clip-path: polygon(28% 41%, 100% 82%, 100% 5%);
+}
+
+.personalButton {
+    width: 180px;
+    display: inline-block;
+    position: relative;
+    color: #19abe6;
+    background-color: #ffff;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 16px 24px;
+    margin: 20px;
+    border: 2px solid #19abe6 ;
+    border-radius: 8px;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.personalButton::before{
+    content: '';
+    position: absolute;
+    background-color: #19abe6 ;
+    height: 250px;
+    width: 400px;
+    border-radius: 20%;
+    z-index: -1;
+
+    top: 100%;
+    left: 100%;
+    transition: 0.7s;
+    
+} 
+
+
+.personalButton:active::before{
+    background-color: purple;
+    transition: 8s;
+}
+
+.personalButton:hover{
+    color: #ffffff;
+}
+
+.personalButton:hover::before{
+    top:-30px;
+    left: -30px;
+}

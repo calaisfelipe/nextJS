@@ -1,15 +1,14 @@
 import bcrypt from "bcrypt";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
 
-export async function POST(request: any) {
-  if (request.method !== "POST") {
-    return NextResponse.json({ message: "405 - ERROR" });
-  }
-
+export async function POST(request: Request) {
   try {
     const { email, name, password } = await request.json();
 
+    if(!email || !password || !name){
+      return new NextResponse('Missing data', {status: 401})
+    }
     
     const existingUser = await prismadb.user.findUnique({
       where: {

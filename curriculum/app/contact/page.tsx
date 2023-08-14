@@ -20,7 +20,7 @@ const ContactPage = () => {
 
   return (
     <div className="sm:h-screen flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full">
-      <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full">
+      <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full sm:p-0 p-4">
         <Tittle text={language.state === 'EN'?'Contact' :"Contato"} />
         <div className="flex flex-col w-full mt-3">
           <div className="text-lg">

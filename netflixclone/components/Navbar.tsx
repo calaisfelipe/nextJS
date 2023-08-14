@@ -19,7 +19,7 @@ export const navItems = [
 
 const OFF_SCROLL = 66;
 
-function Navbar() {
+function Navbar({session}: any) {
   const [mobileVisible, setMobileVisible] = useState(false);
   const [accountMenuVisible, setaccountMenuVisible] = useState(false);
   const [bgColorDefault, setbgColorDefault] = useState(false);
@@ -89,7 +89,7 @@ function Navbar() {
               } `}
             />
 
-            <AccountMenu visible={accountMenuVisible} />
+            <AccountMenu visible={accountMenuVisible} session={session} />
           </div>
         </div>
       </div>

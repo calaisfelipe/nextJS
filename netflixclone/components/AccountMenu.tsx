@@ -5,9 +5,10 @@ import { signOut } from "next-auth/react";
 
 type AccountMenuProps = {
   visible: boolean;
+  session: any
 };
 
-function AccountMenu({ visible }: AccountMenuProps) {
+function AccountMenu({ visible, session }: AccountMenuProps) {
   if (!visible) return null;
 
   return(
@@ -15,7 +16,7 @@ function AccountMenu({ visible }: AccountMenuProps) {
         <div className="flex flex-col gap-3">
             <div className="px-3 group/iten flex flex-row gap-3 items-center w-full">
                 <Image className="w-5 rounded-md" src={profileImg} alt='profile logo' />
-                <p className="text-white text-sm  group-hover/iten:underline">Username</p>
+                <p className="text-white text-sm  group-hover/iten:underline capitalize">{session.data?.user?.name}</p>
 
             </div>
             <hr className="bg-gray-600 border-0 h-px my-4"/>

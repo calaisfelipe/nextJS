@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 
 export default function profilePage() {
@@ -10,7 +11,8 @@ export default function profilePage() {
   const sorted = Math.floor(Math.random() * 4);
   const choosed = options[sorted];
 
-const router = useRouter()
+  const router = useRouter()
+  const session = useSession()
 
   return (
     <>
@@ -28,7 +30,7 @@ const router = useRouter()
           />
         </div>
         <div className="text-gray-400 mt-4 text-2xl text-center group-hover:text-white">
-           <Link href='/'>User Name</Link>
+           <Link href='/' className="capitalize">{session.data?.user?.name}</Link>
         </div>
         </div>
       </section>

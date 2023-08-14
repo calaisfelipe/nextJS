@@ -1,39 +1,27 @@
 "use client";
 import React from "react";
-import { getSession, signOut } from "next-auth/react";
-import { NextPageContext } from "next";
-import useCurrentUser from "@/hooks/useCurrentUser";
+import { useSession} from "next-auth/react";
 import Navbar from "@/components/Navbar";
 import Billboard from "@/components/Billboard";
 import MoviesList from "@/components/MoviesList";
 import { movies } from "@/data/movies";
+import { redirect } from "next/navigation";
 
-
-export async function getServerSideProps(context: NextPageContext) {
-  
-  const session = await getSession(context);
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/auth",
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {},
-  };
-}
 
 export default function Home() {
-  const { data: user } = useCurrentUser();
+  
   const myfavorites = [movies[1]]
 
+  const session = useSession({
+    required: true,
+    onUnauthenticated(){
+      redirect('/auth')
+    }});
+
+    
   return (
     <main>
-      <Navbar />
+      <Navbar session={session} />
       <Billboard />
       <div className="pb-40">
         <MoviesList title="Trending Now" movies={movies} />

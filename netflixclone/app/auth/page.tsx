@@ -48,7 +48,7 @@ export default function Auth() {
       );
 
       login();
-    } catch (error) {}
+    } catch (error) { console.log(error)}
   }, [email, name, password, login]);
 
   return (
