@@ -1,41 +1,26 @@
-import React from 'react'
+import React from "react";
+import { Montserrat } from "next/font/google";
 
-type TittleType = {
-    text: string
-}
+const monstserrat = Montserrat({
+  subsets: ["latin"],
+  weight: "900",
+});
 
-
-const Tittle = ({text}: TittleType) => {
+const Tittle = ({ text }: { text: string }) => {
   return (
-    <div className='
-    w-full
-    text-center 
-    py-1 
-    border-dashed 
-    border 
-    border-gray-300 
-    uppercase 
-    font-bold 
-    text-4xl
-    h-12
-    px-8
-    
-    md:text-5xl
-    md:h-14 
-    md:px-12 
+    <div className="w-full text-center relative h-20 dark:text-white">
+      <div
+        className={` ${monstserrat.className} font-extrabold text-4xl absolute top-0 left-[50%] translate-x-[-50%] `}
+      >
+        {text}
+      </div>
+      <div
+        className={` ${monstserrat.className} w-full text-7xl font-extrabold opacity-10 absolute top-2 left-[50%] translate-x-[-50%] `}
+      >
+        {text}
+      </div>
+    </div>
+  );
+};
 
-    lg:text-7xl
-    lg:h-20
-    lg:px-16
-    
-    xl:text-8xl
-    xl:h-24
-    xl:px-20
-    
-    '
-    
-    >{text}</div>
-  )
-}
-
-export default Tittle
+export default Tittle;

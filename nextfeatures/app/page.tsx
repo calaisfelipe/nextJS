@@ -1,24 +1,16 @@
-import Image from "next/image";
-import getBufferedUrl from "@/lib/useBufferedUrl";
+import Link from "next/link";
 
 export default async function Home() {
-
-  const myBlur = await getBufferedUrl('https://upload.wikimedia.org/wikipedia/commons/5/5f/Rocketlandpage.png')
-
   return (
-    <main className="grid min-h-screen place-content-center bg-gray-500">
-      <div className="w-[400px] rounded-md overflow-hidden">
-        <Image
-          src='https://upload.wikimedia.org/wikipedia/commons/5/5f/Rocketlandpage.png'
-          alt="coffe"
-          priority
-          width={1200}
-          height={800}
-          sizes="400px"
-          placeholder="blur"
-          blurDataURL={myBlur}
-        />
-      </div>
+    <main className="grid min-h-screen place-content-center bg-gray-200 gap-2">
+      <h2 className="text-5xl text-black text-center w-full">Home</h2>
+
+      <Link href="/products?showDialog=y" className="text-2xl hover:underline">
+        Go to Products with modal
+      </Link>
+      <Link href="/products" className="text-2xl hover:underline">
+        Go to Products without modal
+      </Link>
     </main>
   );
 }

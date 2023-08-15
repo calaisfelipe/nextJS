@@ -20,8 +20,10 @@ const AsideBar = ({meta}:{meta:string}) => {
           alt="Foto perfil"
           className="grayscale bg-[#c3c3c3]"
         />
+        <div className="w-full text-center mt-1 font-bold text-xl dark:text-white ">Felipe Calais</div>
+        <p className="tracking-tighter text-xs w-full text-center font-semibold opacity-40 dark:text-white text-gray-600">Web Developer / Front-End</p>
       </div>
-      <div className="h-full flex flex-col justify-center items-center">
+      <div className="lg:h-full lg:mt-0 sm:mt-6 flex flex-col justify-center items-center">
         <div className="flex flex-col items-center justify-center">
             <TbPointFilled size={15} />
             |

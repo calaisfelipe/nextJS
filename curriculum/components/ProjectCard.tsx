@@ -118,7 +118,7 @@ const ProjectCard = ({ project }: ProjectCardtype) => {
                 height={18}
                 width={18}
                 className="hover:scale-125 cursor-pointer"
-                alt="tecnologie"
+                alt={tecno.title}
               />
             ))}
           </div>
