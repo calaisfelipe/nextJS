@@ -5,7 +5,7 @@ import {projectsFirstRow} from '@/data/projects'
 
 
 const PortfolioPage = () => {
-
+ 
  
   return (
     <div className="sm:h-screen  flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full">

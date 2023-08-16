@@ -3,17 +3,23 @@ import React, {useEffect} from "react";
 import Tittle from "@/components/Tittle";
 import FormationBox from "@/components/FormationBox";
 import useContextLanguage from "@/hooks/useContextLanguage";
-import { useRouter } from "next/navigation";
+
 
 const FormationPage = () => {
     const language = useContextLanguage()
 
-    const router = useRouter()
 
-  useEffect(() => {
-    router.refresh()
-
-  }, [language, router])
+    useEffect(() => {
+      const getLanguage = localStorage.getItem("language");
+  
+      if (getLanguage === "EN") {
+        language.dispatch({ type: "CHANGE_LANG" });
+      }
+  
+      if (!getLanguage) {
+        language.dispatch({ type: "RESET" });
+      }
+    }, [language]);
 
 
   return (

@@ -14,17 +14,24 @@ import interfaceUser from "@/public/images/interfacedeusuario.png";
 import responsiveDesign from "@/public/images/designResponsivo.png";
 import git from "@/public/images/Git-Logo-White.png";
 import useContextLanguage from "@/hooks/useContextLanguage";
-import { useRouter } from "next/navigation";
+
 
 const AboutMePage = () => {
   const tecnologies = [css, js, ts, html5, reactLogo, tailwind, nextlogo, git];
   const language = useContextLanguage();
 
-  const router = useRouter();
-
+  
   useEffect(() => {
-    router.refresh();
-  }, [language, router]);
+    const getLanguage = localStorage.getItem("language");
+
+    if (getLanguage === "EN") {
+      language.dispatch({ type: "CHANGE_LANG" });
+    }
+
+    if (!getLanguage) {
+      language.dispatch({ type: "RESET" });
+    }
+  }, [language]);
 
   return (
     <div className="md:h-screen w-full bg-gray-200 dark:bg-gray-700 dark:text-white flex justify-center ">

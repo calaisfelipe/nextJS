@@ -71,6 +71,7 @@ export default function Home() {
               : "Seja muito bem vindo, a seguir você poderá conhecer um pouco mais sobre mim e sobre meu trabalho conhecendo alguns dos meus principais projetos."}
           </p>
           <HomeButton
+            type="button"
             text={language.state === "EN" ? "More about me" : "Mais sobre mim"}
             action={() => router.push("/aboutme")}
           />
