@@ -1,8 +1,9 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import Tittle from "@/components/Tittle";
 import { CiDesktop } from "react-icons/ci";
+import { AiOutlineLoading } from "react-icons/ai";
 import {
   BsTelephone,
   BsInstagram,
@@ -13,20 +14,28 @@ import {
 import Link from "next/link";
 import useContextLanguage from "@/hooks/useContextLanguage";
 import HomeButton from "@/components/HomeButton";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
+import SocialMediaBar from "@/components/SocialMediaBar";
+import {motion} from 'framer-motion'
+import { type } from "os";
 
 const ContactPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-
-  const submitForm = (data: any) => {
-    console.log(data);
-  };
+    reset,
+  } = useForm({
+    defaultValues: {
+      email: "",
+      assunto: "",
+      message: "",
+    },
+  });
 
   const language = useContextLanguage();
-
 
   useEffect(() => {
     const getLanguage = localStorage.getItem("language");
@@ -40,13 +49,66 @@ const ContactPage = () => {
     }
   }, [language]);
 
+  const submitForm = (data: any) => {
+    setIsLoading(true);
+
+    try {
+      const { email, assunto, message } = data;
+
+      const templateParams = {
+        to_name: "Felipe Calais",
+        from_assunto: assunto,
+        from_name: email,
+        message,
+      };
+
+      emailjs
+        .send(
+          "service_uytliem",
+          "template_56boddk",
+          templateParams,
+          "tto_Qt7ibeDuXxBH1"
+        )
+        .then((response) => {
+          if (response.status === 200) {
+            toast.success(
+              `${language.state === "EN" ? "Email sended" : "Email Enviado"}`
+            );
+          } else {
+            toast.error(
+              `${
+                language.state === "EN"
+                  ? "Something went wrong"
+                  : "Algo deu errado - tente novamente mais tarde"
+              }`
+            );
+          }
+        })
+        .finally(() => {
+          reset();
+          setIsLoading(false);
+        });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      () => setIsLoading(false);
+    }
+
+    console.log(data);
+  };
+ 
   return (
-    <div className="sm:h-screen flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full">
+    <motion.div 
+    initial={{y:'100vh'}}
+    animate={{y:0}}
+    transition={{type:'tween', delay:0.2, duration:1}}
+    className="sm:h-screen flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full">
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full sm:p-0 p-4">
         <Tittle text={language.state === "EN" ? "Contact" : "Contato"} />
+        <SocialMediaBar contact/>
 
         <div className="flex md:flex-row flex-col gap-16 mt-8 w-full justify-center">
-          <div className="flex flex-col gap-2">
+          <div className="md:flex hidden flex-col gap-2">
             <div className="flex flex-col w-full mt-3 px-2">
               <div className="text-md  font-semibold">
                 {language.state === "EN"
@@ -65,29 +127,7 @@ const ContactPage = () => {
               </div>
               <div>
                 <p>felipe_calais@hotmail.com</p>
-                <div className="flex flex-row gap-2 mt-2">
-                  <Link
-                    href="https://github.com/calaisfelipe"
-                    className="hover:opacity-60"
-                    target="_blank"
-                  >
-                    <BsGithub size={18} />
-                  </Link>
-                  <Link
-                    href="https://www.instagram.com/calaisfelipe/"
-                    className="hover:opacity-60"
-                    target="_blank"
-                  >
-                    <BsInstagram size={18} />
-                  </Link>
-                  <Link
-                    href="https://twitter.com/CalaisFelipe_br"
-                    className="hover:opacity-60"
-                    target="_blank"
-                  >
-                    <BsTwitter size={18} />
-                  </Link>
-                </div>
+                
               </div>
             </div>
 
@@ -100,13 +140,7 @@ const ContactPage = () => {
                   <Link href="https://wa.me/5531995196573" target="_blank">
                     +55 (31) 9 9519-6573
                   </Link>
-                  <Link
-                    href="https://wa.me/5531995196573"
-                    className="hover:opacity-60"
-                    target="_blank"
-                  >
-                    <BsWhatsapp size={18} />
-                  </Link>
+                  
                 </div>
               </div>
             </div>
@@ -133,13 +167,23 @@ const ContactPage = () => {
               </label>
               <input
                 type="email"
+                disabled={isLoading}
                 id="email"
-                {...register("email")}
-                className="w-80 rounded-full px-3 outline-none hover:outline-none text-sm py-1"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i,
+                    message: "Invalid email format",
+                  },
+                })}
+                className="w-80 rounded-full px-3 outline-none hover:outline-none dark:text-black text-sm py-1"
                 placeholder={
                   language.state === "EN" ? "Your email..." : "Seu email..."
                 }
               />
+              <div className="text-xs font-semibold text-red-500 mt-1">
+                {errors.email?.message}
+              </div>
             </div>
             <div className="flex flex-col">
               <label
@@ -151,13 +195,18 @@ const ContactPage = () => {
               <input
                 type="assunto"
                 id="assunto"
-                {...register("assunto")}
-                className="w-80 rounded-full px-3 outline-none hover:outline-none text-sm py-1"
+                disabled={isLoading}
+                {...register("assunto", { required: "subject is required" })}
+                className="w-80 rounded-full px-3 dark:text-black outline-none hover:outline-none text-sm py-1"
                 placeholder={
                   language.state === "EN" ? "Subject..." : "Assunto... "
                 }
               />
+              <div className="text-xs font-semibold text-red-500 mt-1">
+                {errors.assunto?.message}
+              </div>
             </div>
+
             <div className="flex flex-col">
               <label
                 htmlFor="message"
@@ -166,24 +215,30 @@ const ContactPage = () => {
                 {language.state === "EN" ? "Message:" : "Mensagem:"}
               </label>
               <textarea
+                disabled={isLoading}
                 cols={8}
                 rows={3}
                 id="message"
-                {...register("message")}
-                className="w-80  px-3 outline-none hover:outline-none text-sm py-1 rounded-lg"
+                {...register("message", {
+                  required: "Message is required",
+                  minLength: { value: 10, message: "Minimum 10 caracteres" },
+                })}
+                className="w-80  px-3 outline-none hover:outline-none text-sm py-1 rounded-lg dark:text-black"
                 placeholder={
                   language.state === "EN"
                     ? "Tell me your next idea..."
                     : "Me conte sua próxima ideia... "
                 }
               />
+              <div className="text-xs font-semibold text-red-500 mt-1">
+                {errors.message?.message}
+              </div>
             </div>
 
-            <HomeButton
-              text={language.state === "EN" ? "Send" : "Enviar"}
-              type="submit"
-              secondary
-            />
+            <HomeButton disabled={isLoading} type="submit" secondary>
+              {language.state === "EN" ? `Send` : "Enviar"}
+              {isLoading && <AiOutlineLoading className="animate-spin" />}
+            </HomeButton>
           </form>
         </div>
 
@@ -193,7 +248,7 @@ const ContactPage = () => {
             : "Obrigado pela visita"}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

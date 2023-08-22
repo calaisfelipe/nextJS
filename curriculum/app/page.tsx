@@ -7,6 +7,7 @@ import { Monoton } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { LanguageContext } from "@/context/language";
+import {motion} from 'framer-motion'
 
 const monoton = Monoton({
   subsets: ["latin"],
@@ -49,7 +50,11 @@ export default function Home() {
         
 
         </div>
-        <div className="flex flex-col w-80 sm:w-96 lg:w-auto">
+        <motion.div 
+        initial={{y:'-250vw'}}
+        animate={{y: -10}}
+        transition={{delay:0.2, type:'spring', stiffness: 120 }}
+        className="flex flex-col w-80 sm:w-96 lg:w-auto">
           <p className="text-4xl font-bold xl:text-4xl ">
             {language.state === "EN" ? "HI THERE!" : "Olá!"}
           </p>
@@ -75,14 +80,14 @@ export default function Home() {
             text={language.state === "EN" ? "More about me" : "Mais sobre mim"}
             action={() => router.push("/aboutme")}
           />
-        </div>
+        </motion.div>
       </div>
       <div className="bg-white dark:bg-gray-700 h-screen relative hidden xl:block">
       <Image src={ProfilePhoto} height={400} width={400} className="z-50 grayscale absolute top-10 left-24 rounded-[100%]" alt='profile photo'/>
-        <div className="bg-yellow-500 dark:bg-white clippy h-screen">
+        <motion.div  animate={{rotateZ:360}} transition={{duration:1.5, ease:'easeIn' }} className="bg-yellow-500 dark:bg-white clippy h-screen">
         
             
-        </div>
+        </motion.div>
 
       </div>
       

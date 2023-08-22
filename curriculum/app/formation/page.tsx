@@ -3,6 +3,7 @@ import React, {useEffect} from "react";
 import Tittle from "@/components/Tittle";
 import FormationBox from "@/components/FormationBox";
 import useContextLanguage from "@/hooks/useContextLanguage";
+import {motion} from 'framer-motion'
 
 
 const FormationPage = () => {
@@ -27,7 +28,7 @@ const FormationPage = () => {
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full ">
         <Tittle text={language.state === 'EN'? "Formation" : 'Formação'} />
 
-        <div className="flex flex-col w-full sm:p:0 p-2">
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.2, duration:2}} className="flex flex-col w-full sm:p:0 p-2">
           <div>
             <h4 className="uppercase font-bold text-md dark:text-blue-400">{language.state === 'EN'? "Education" : 'Escolaridade'}</h4>
             <div className="flex sm:flex-row flex-col gap-4">
@@ -75,7 +76,7 @@ const FormationPage = () => {
             />
           </div>
         </div>
-        </div>
+        </motion.div>
 
         
       </div>

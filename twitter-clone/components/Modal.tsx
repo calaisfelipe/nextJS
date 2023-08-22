@@ -50,7 +50,7 @@ const Modal = ({
         <div className="relative w-full lg:w-3/6 my-6 mx-auto lg:max-w-3xl lg:h-auto">
           {/*CONTENT */}
 
-          <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline-none focus:outline-none">
+          <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline-none focus:outline-none ">
             {/*HEADER */}
             <div className="flex items-center justify-between p-10 rounded-t">
               <h3 className="text-white text-3xl font-semibold">{title}</h3>

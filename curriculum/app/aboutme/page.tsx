@@ -14,11 +14,29 @@ import interfaceUser from "@/public/images/interfacedeusuario.png";
 import responsiveDesign from "@/public/images/designResponsivo.png";
 import git from "@/public/images/Git-Logo-White.png";
 import useContextLanguage from "@/hooks/useContextLanguage";
+import {useMotionValue, useTransform, animate, motion} from 'framer-motion'
 
 
 const AboutMePage = () => {
   const tecnologies = [css, js, ts, html5, reactLogo, tailwind, nextlogo, git];
   const language = useContextLanguage();
+
+  const count = useMotionValue(0)
+  const count2 = useMotionValue(0)
+  const count3 = useMotionValue(0)
+  const rounded = useTransform(count, latest => Math.round(latest))
+  const rounded2 = useTransform(count2, latest2 => Math.round(latest2))
+  const rounded3 = useTransform(count3, latest3 => Math.round(latest3))
+
+  useEffect(() => {
+    const controls = animate(count, 40, {duration:5})
+    const controls2 = animate(count2, 8, {duration:3})
+    const controls3 = animate(count3, 1.2, {duration:3})
+  
+    return (
+      controls.stop, controls2.stop ,controls3.stop
+    )
+  }, [count, count2, count3])
 
   
   useEffect(() => {
@@ -57,9 +75,12 @@ const AboutMePage = () => {
         <div className="flex md:flex-row flex-col gap-2 mt-2 w-full">
           <div className="grid lg:grid-cols-2 grid-cols-1  bg-transparent md:max-w-[60%] max-w-full gap-[1px] ">
             <div className="flex flex-col justify-center items-center p-2 bg-black">
-              <span className="text-6xl text-yellow-500 dark:text-blue-400">
-                8+
-              </span>
+            <div className="flex flex-row">
+                <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">{rounded2}</motion.div>
+                <span className="text-6xl text-yellow-500 dark:text-blue-400 ">
+                  +
+                </span>
+              </div>
               <p className="uppercase text-white text-[9px] ">
                 {language.state === "EN"
                   ? `Technologies I master`
@@ -81,9 +102,12 @@ const AboutMePage = () => {
             </div>
 
             <div className="flex flex-col justify-center items-center p-2 bg-black">
-              <span className="text-6xl text-yellow-500 dark:text-blue-400 ">
-                40+
-              </span>
+              <div className="flex flex-row">
+                <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">{rounded}</motion.div>
+                <span className="text-6xl text-yellow-500 dark:text-blue-400 ">
+                  +
+                </span>
+              </div>
               <p className="uppercase text-white text-[9px] ">
                 {language.state === "EN"
                   ? `Completed Projects`
@@ -92,9 +116,12 @@ const AboutMePage = () => {
             </div>
 
             <div className="flex flex-col justify-center items-center p-2 bg-black  ">
-              <span className="text-6xl text-yellow-500 dark:text-blue-400">
-                1.2
-              </span>
+            <div className="flex flex-row">
+                <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">{rounded3}</motion.div>
+                <span className="text-6xl text-yellow-500 dark:text-blue-400 ">
+                  +
+                </span>
+              </div>
               <p className="uppercase text-white text-[9px] ">
                 {language.state === "EN"
                   ? `Years of experience`

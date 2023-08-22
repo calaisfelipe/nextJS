@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import Loading from "./loading";
 import Navbar from "@/components/Navbar";
-import LanguageProvider from '@/context/LanguageProvider';
-
+import LanguageProvider from "@/context/LanguageProvider";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,14 +21,12 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} relative`}>
+      <body className={`${inter.className} relative overflow-hidden`}>
+        <Toaster position="bottom-right" reverseOrder={false} />
         <LanguageProvider>
-        <Navbar />
-        <Suspense fallback={<Loading />}>
-        {children}
-        </Suspense>
+          <Navbar />
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </LanguageProvider>
-        
       </body>
     </html>
   );
