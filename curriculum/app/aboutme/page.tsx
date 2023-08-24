@@ -14,31 +14,27 @@ import interfaceUser from "@/public/images/interfacedeusuario.png";
 import responsiveDesign from "@/public/images/designResponsivo.png";
 import git from "@/public/images/Git-Logo-White.png";
 import useContextLanguage from "@/hooks/useContextLanguage";
-import {useMotionValue, useTransform, animate, motion} from 'framer-motion'
-
+import { useMotionValue, useTransform, animate, motion } from "framer-motion";
 
 const AboutMePage = () => {
   const tecnologies = [css, js, ts, html5, reactLogo, tailwind, nextlogo, git];
   const language = useContextLanguage();
 
-  const count = useMotionValue(0)
-  const count2 = useMotionValue(0)
-  const count3 = useMotionValue(0)
-  const rounded = useTransform(count, latest => Math.round(latest))
-  const rounded2 = useTransform(count2, latest2 => Math.round(latest2))
-  const rounded3 = useTransform(count3, latest3 => Math.round(latest3))
+  const count = useMotionValue(0);
+  const count2 = useMotionValue(0);
+  const count3 = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const rounded2 = useTransform(count2, (latest2) => Math.round(latest2));
+  const rounded3 = useTransform(count3, (latest3) => Math.round(latest3));
 
   useEffect(() => {
-    const controls = animate(count, 40, {duration:5})
-    const controls2 = animate(count2, 8, {duration:3})
-    const controls3 = animate(count3, 1.2, {duration:3})
-  
-    return (
-      controls.stop, controls2.stop ,controls3.stop
-    )
-  }, [count, count2, count3])
+    const controls = animate(count, 40, { duration: 5 });
+    const controls2 = animate(count2, 8, { duration: 3 });
+    const controls3 = animate(count3, 1.2, { duration: 3 });
 
-  
+    return controls.stop, controls2.stop, controls3.stop;
+  }, [count, count2, count3]);
+
   useEffect(() => {
     const getLanguage = localStorage.getItem("language");
 
@@ -52,7 +48,12 @@ const AboutMePage = () => {
   }, [language]);
 
   return (
-    <div className="md:h-screen w-full bg-gray-200 dark:bg-gray-700 dark:text-white flex justify-center ">
+    <motion.div
+      className="md:h-screen w-full bg-gray-200 dark:bg-gray-700 dark:text-white flex justify-center "
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.2, duration: 1 }}
+    >
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full">
         <Tittle text={language.state === "EN" ? `About me` : "Sobre mim"} />
 
@@ -75,8 +76,10 @@ const AboutMePage = () => {
         <div className="flex md:flex-row flex-col gap-2 mt-2 w-full">
           <div className="grid lg:grid-cols-2 grid-cols-1  bg-transparent md:max-w-[60%] max-w-full gap-[1px] ">
             <div className="flex flex-col justify-center items-center p-2 bg-black">
-            <div className="flex flex-row">
-                <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">{rounded2}</motion.div>
+              <div className="flex flex-row">
+                <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">
+                  {rounded2}
+                </motion.div>
                 <span className="text-6xl text-yellow-500 dark:text-blue-400 ">
                   +
                 </span>
@@ -103,7 +106,9 @@ const AboutMePage = () => {
 
             <div className="flex flex-col justify-center items-center p-2 bg-black">
               <div className="flex flex-row">
-                <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">{rounded}</motion.div>
+                <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">
+                  {rounded}
+                </motion.div>
                 <span className="text-6xl text-yellow-500 dark:text-blue-400 ">
                   +
                 </span>
@@ -116,8 +121,10 @@ const AboutMePage = () => {
             </div>
 
             <div className="flex flex-col justify-center items-center p-2 bg-black  ">
-            <div className="flex flex-row">
-                <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">{rounded3}</motion.div>
+              <div className="flex flex-row">
+                <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">
+                  {rounded3}
+                </motion.div>
                 <span className="text-6xl text-yellow-500 dark:text-blue-400 ">
                   +
                 </span>
@@ -204,7 +211,7 @@ const AboutMePage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
