@@ -22,7 +22,7 @@ const FormationPage = () => {
   }, [language]);
 
   return (
-    <div className="sm:h-screen h-[95vh]  flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full">
+    <div className="sm:h-screen h-[95vh]  flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full overflow-hidden">
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full ">
         <Tittle text={language.state === "EN" ? "Formation" : "Formação"} />
 

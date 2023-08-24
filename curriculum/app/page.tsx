@@ -31,7 +31,7 @@ export default function Home() {
   }, [language]);
 
   return (
-    <main className="sm:grid  sm:grid-cols-2 flex flex-col sm:h-full h-auto w-full relative md:overflow-hidden">
+    <main className="sm:grid  sm:grid-cols-2 flex flex-col sm:h-full h-[95vh] w-full relative md:overflow-hidden">
       <SideBar meta="Home" />
       <div className="flex flex-col sm:justify-center sm:pt-0 pt-14 items-center h-screen bg-gray-100 dark:bg-gray-700 dark:text-white">
         <div className="sm:hidden w-full flex justify-end items-center mr-0 relative">

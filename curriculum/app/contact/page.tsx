@@ -102,12 +102,12 @@ const ContactPage = () => {
     initial={{x:'100vw'}}
     animate={{x:0}}
     transition={{type:'tween', duration:0.6 }}
-    className="sm:h-screen flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full">
+    className="sm:h-screen h-[95vh] flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-screen overflow-hidden">
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full sm:p-0 p-4">
         <Tittle text={language.state === "EN" ? "Contact" : "Contato"} />
         <SocialMediaBar contact/>
 
-        <div className="flex md:flex-row flex-col gap-16 mt-8 w-full justify-center">
+        <div className="flex md:flex-row flex-col gap-16 mt-8 w-full justify-center items-center">
           <div className="md:flex hidden flex-col gap-2">
             <div className="flex flex-col w-full mt-3 px-2">
               <div className="text-md  font-semibold">
@@ -147,7 +147,7 @@ const ContactPage = () => {
           </div>
 
           <form
-            className="w-full bg-yellow-500 dark:bg-gray-700 p-1 flex flex-col gap-2 items-center rounded-md"
+            className="w-fit bg-yellow-500 dark:bg-gray-700 p-4 flex flex-col gap-2 items-center rounded-md "
             onSubmit={handleSubmit(submitForm)}
           >
             <div className="my-2">
