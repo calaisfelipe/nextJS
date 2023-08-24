@@ -4,6 +4,7 @@ import Button from '@/components/Button'
 import {useRouter} from 'next/navigation'
 import {motion} from 'framer-motion'
 import { Quicksand } from "next/font/google";
+import Loading from '@/components/Loading';
 
 
 const quicksand = Quicksand({ subsets: ["latin"], weight: ["400"] });
@@ -22,6 +23,8 @@ export default function Home() {
      
       <Button label='Create Your Pizza' onAction={() => router.push('/base') } />
     </motion.div>
+
+    <Loading />
     </>
     
   )

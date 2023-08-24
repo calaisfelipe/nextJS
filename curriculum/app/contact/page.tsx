@@ -99,9 +99,9 @@ const ContactPage = () => {
  
   return (
     <motion.div 
-    initial={{y:'100vh'}}
-    animate={{y:0}}
-    transition={{type:'tween', delay:0.2, duration:1}}
+    initial={{x:'100vw'}}
+    animate={{x:0}}
+    transition={{type:'tween', duration:0.6 }}
     className="sm:h-screen flex justify-center  bg-gray-200 dark:bg-gray-700 dark:text-white w-full">
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full sm:p-0 p-4">
         <Tittle text={language.state === "EN" ? "Contact" : "Contato"} />

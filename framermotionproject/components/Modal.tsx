@@ -8,8 +8,10 @@ import { AiOutlineClose } from "react-icons/ai";
 const quicksand = Quicksand({ subsets: ["latin"] });
 
 type ModalProps = {
-  title: string;
-  message: string;
+  title?: string;
+  message?: string;
+  action?: () => void;
+  btnLabel: string;
 };
 
 const bgFadeAnimation = {
@@ -27,7 +29,7 @@ const modalAnimation = {
   exit: { y: "100vh", transition: { type: "spring", stiffness: 150 } },
 };
 
-const Modal = ({ title, message }: ModalProps) => {
+const Modal = ({ title, message, action, btnLabel }: ModalProps) => {
   const modal = useModal();
 
   return (
@@ -63,9 +65,9 @@ const Modal = ({ title, message }: ModalProps) => {
             <div>
               <button
                 className="p-2 border rounded-xl bg-purple-700 text-white hover:opacity-60"
-                onClick={() => modal.onClose()}
+                onClick={action}
               >
-                Confirm
+                {btnLabel}
               </button>
             </div>
           </motion.div>

@@ -21,7 +21,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} relative overflow-hidden`}>
+      <body className={`${inter.className} relative`}>
         <Toaster position="bottom-right" reverseOrder={false} />
         <LanguageProvider>
           <Navbar />

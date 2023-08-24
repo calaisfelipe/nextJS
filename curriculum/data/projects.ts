@@ -11,14 +11,6 @@ import mongo from '@/public/images/mongo.png'
 
 export const projectsFirstRow = [
   {
-    title: "Portfólio",
-    thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/7/76/Portfolio2calais.png",
-    isInBuild: false,
-    tecnologies: [ts, html5, reactLogo, tailwind, nextlogo, css],
-    link: "#",
-  },
-  {
     title: "Rocket LandPage",
     isInBuild: false,
     thumbnailUrl:

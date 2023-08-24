@@ -1,9 +1,12 @@
 "use client";
-import React from "react";
+import React, {useEffect} from "react";
 import { Quicksand } from "next/font/google";
 import Tittle from "@/components/Tittle";
 import usePizza from "@/hook/usePizza";
 import {motion } from "framer-motion";
+import Modal from "@/components/Modal";
+import { useRouter } from "next/navigation";
+import useModal from "@/hook/useModal";
 
 const quicksand = Quicksand({ subsets: ["latin"] });
 
@@ -33,10 +36,35 @@ const childVariant = {
   visible: { opacity: 1, transition: { duration: 3 } },
 };
 
+
+
+
 const OrderPage = () => {
+
+
+  const router = useRouter()
   const pizza = usePizza();
+  const modal = useModal()
+
+  useEffect(() => {
+    setTimeout(() => {
+      modal.onShow()
+    }, 5000)
+  }, [])
+
+
+  function goToHome() {
+
+    modal.onClose();
+    pizza.reset();
+    router.push('/');
+
+
+  }
 
   return (
+    <>
+    <Modal title="Want to make another pizza?" message="Go to home page and start again" btnLabel="Go to Home" action={goToHome} />
     <motion.div
       
       variants={divVariant}
@@ -73,6 +101,7 @@ const OrderPage = () => {
         </ul>
       </div>
     </motion.div>
+    </>
   );
 };
 

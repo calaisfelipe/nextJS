@@ -44,7 +44,8 @@ const options: NextAuthOptions = {
     }),
   ],
   session: { strategy: "jwt" },
-  secret: process.env.NEXTAUTH_URL_SECRET as string,
+  jwt:{ secret: process.env.NEXTAUTH_JWT_SECRET as string},
+  secret: process.env.NEXTAUTH_SECRET as string,
   debug: process.env.NODE_ENV === "development",
 };
 

@@ -31,7 +31,7 @@ export default function Home() {
   }, [language]);
 
   return (
-    <main className="sm:grid  sm:grid-cols-2 flex flex-col sm:h-full h-[95vh] w-full relative">
+    <main className="sm:grid  sm:grid-cols-2 flex flex-col sm:h-full h-[95vh] w-full relative md:overflow-hidden">
       <SideBar meta="Home" />
       <div className="flex flex-col sm:justify-center sm:pt-0 pt-14 items-center h-screen bg-gray-100 dark:bg-gray-700 dark:text-white">
         <div className="sm:hidden w-full flex justify-end items-center mr-0 relative">
@@ -84,7 +84,7 @@ export default function Home() {
       </div>
       <div className="bg-white dark:bg-gray-700 h-screen relative hidden xl:block">
       <Image src={ProfilePhoto} height={400} width={400} className="z-50 grayscale absolute top-10 left-24 rounded-[100%]" alt='profile photo'/>
-        <motion.div  animate={{rotateZ:360}} transition={{duration:1.5, ease:'easeIn' }} className="bg-yellow-500 dark:bg-white clippy h-screen">
+        <motion.div  animate={{rotateZ:360}} transition={{duration:1.5, ease:'easeInOut' }} className="bg-yellow-500 dark:bg-white clippy h-screen">
         
             
         </motion.div>
