@@ -242,7 +242,7 @@ const ContactPage = () => {
           </form>
         </div>
 
-        <div className="text-4xl font-bold w-full text-center mt-8 mb-8 uppercase">
+        <div className="text-4xl font-bold w-full text-center sm:my-4 my-4 uppercase">
           {language.state === "EN"
             ? "Thanks for the visit"
             : "Obrigado pela visita"}

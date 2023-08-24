@@ -54,28 +54,28 @@ const AboutMePage = () => {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2, duration: 1 }}
     >
-      <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full">
+      <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full ">
         <Tittle text={language.state === "EN" ? `About me` : "Sobre mim"} />
 
-        <div className="w-full mt-2">
+        <div className="w-full mt-2 sm:px-0 px-4">
           <p className="text-2xl">
             {language.state === "EN" ? `I'm ` : "Eu sou o "}
-            <span className=" font-bold text-lg dark:text-blue-400">
+            <span className="font-bold text-lg dark:text-blue-400">
               Felipe Calais
             </span>
             , Desenvolvedor web / Front-end
           </p>
         </div>
-        <div className="w-full">
+        <div className="w-full sm:px-0 px-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             {language.state === "EN"
               ? "A technology enthusiast, passionate about programming and its challenges. I like to create and solve problems. I study and keep myself updated with the best technologies of today."
               : "Um entusiasta por tecnologia, apaixonado pela programação e seus desafios. Gosto de criar e resolver problemas. Estudo e me mantenho atualizado com as melhores tecnologias da atualidade. Programação e desenvolvimento é o meu foco mas tenho buscado me especializ em UX/UI e design. Meu objetivo é me tornar o profissional web mais completo possivel."}
           </p>
         </div>
-        <div className="flex md:flex-row flex-col gap-2 mt-2 w-full">
+        <div className="flex md:flex-row flex-col gap-2 mt-2 w-full sm:px-0 px-2  items-center">
           <div className="grid lg:grid-cols-2 grid-cols-1  bg-transparent md:max-w-[60%] max-w-full gap-[1px] ">
-            <div className="flex flex-col justify-center items-center p-2 bg-black">
+            <div className="flex flex-col justify-center items-center p-2 bg-black sm:w-full w-80">
               <div className="flex flex-row">
                 <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">
                   {rounded2}
@@ -91,7 +91,7 @@ const AboutMePage = () => {
               </p>
             </div>
 
-            <div className="grid-cols-4 grid gap-2 p-2 bg-black">
+            <div className="grid-cols-4 grid gap-2 p-2 bg-black sm:w-full w-80">
               {tecnologies.map((tec, index) => (
                 <Image
                   src={tec}
@@ -104,7 +104,7 @@ const AboutMePage = () => {
               ))}
             </div>
 
-            <div className="flex flex-col justify-center items-center p-2 bg-black">
+            <div className="flex flex-col justify-center items-center p-2 bg-black sm:w-full w-80">
               <div className="flex flex-row">
                 <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">
                   {rounded}
@@ -120,7 +120,7 @@ const AboutMePage = () => {
               </p>
             </div>
 
-            <div className="flex flex-col justify-center items-center p-2 bg-black  ">
+            <div className="flex flex-col justify-center items-center p-2 bg-black sm:w-full w-80 ">
               <div className="flex flex-row">
                 <motion.div className="text-6xl text-yellow-500 dark:text-blue-400">
                   {rounded3}
@@ -137,7 +137,7 @@ const AboutMePage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center ml-2 p-2">
+          <div className="flex flex-col justify-center ml-2 p-2 sm:mb-0 mb-2">
             <h3 className="font-bold text-2xl dark:text-blue-400 mb-2">
               {language.state === "EN" ? `What I Do?` : "Oque eu faço?"}
             </h3>
