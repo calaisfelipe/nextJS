@@ -13,7 +13,7 @@ export const metadata = {
 
 const formationLayout = ({children}: formationLayoutType) => {
   return (
-    <div className='flex bg-gray-200'>
+    <div className='flex bg-gray-200 dark:bg-gray-700'>
         <AsideBar meta={metadata.title}/>
         <SideBar meta={metadata.title} />
          {children}

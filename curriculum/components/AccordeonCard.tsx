@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import commingsoon from "@/public/images/comingsoonredimensionada.png";
+import {motion} from 'framer-motion'
 import Link from "next/link";
 
 
@@ -18,16 +19,16 @@ type ProjectCardtype = {
   };
 };
 
-const ProjectCard = ({ project , language }:ProjectCardtype) => {
+const AccordeonCard = ({ project , language }:ProjectCardtype) => {
 
   
-
   return (
-    <div className="group bg-transparent col-span relative sm:h-[12vw] h-full ">
+    <div className="group  dark:bg-transparent col-span relative
+    w-full h-[140px]">
       <Image
         className={
       `cursor-pointer
-      object-cover
+      bg-cover
       transition
       duration 
       shadow-xl
@@ -35,58 +36,27 @@ const ProjectCard = ({ project , language }:ProjectCardtype) => {
       group-hover:opacity-90
       sm:group-hover:opacity-0
       delay-300
-      w-full
-      h-full
-      lg:w-fit
-      lg:h-fit
+      
+      
+    
+      
       ${project.isInBuild ? 'opacity-50 hover:opacity-100' : '' }
       `
       }
-        width={150}
-        height={150}
+        width={320}
+        height={40}
+        
        
         src={project.isInBuild ? commingsoon : project.thumbnailUrl}
         alt={`${project.title} thumbnail`}
       />
-      <div
-        className="opacity-0 absolute top-0 transition duration-200 z-10 invisible sm:visible delay-300 w-full scale-0 group-hover:scale-110
-      group-hover:-translate-y-[6vw]
-      group-hover:translate-x-[2vw]
-      group-hover:opacity-100  
-      "
-      >
-        <Image
-          className="
-        cursor-pointer
-        object-cover
-        transition
-        duration
-        shadow-xl
-        rounded-t-md
-        w-fit
-        h-fit
-        "
-        width={150}
-        height={150}
-          
-          src={project.isInBuild ? commingsoon : project.thumbnailUrl}
-          alt={`${project.title} thumbnail`}
-        />
-        <div
-          className="
-        z-10
-        bg-gray-900
-        p-2
-        lg:p-4
-        absolute
-        w-full
-        transition
-        shadow-md
-        rounded-b-md
 
-        "
-        >
-          <div className="flex flex-row items-center gap-3">
+      <motion.div className="absolute top-0 bg-gray-900 bg-opacity-80 w-full h-full rounded-md"
+      initial={{opacity:0}}
+      whileHover={{opacity:1, transition:{delay:0.2, duration:0.5}}}
+      >
+        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-row items-center gap-3 mt-5">
             
 
             <p className={`text-white opacity-80 font-semibold hover:opacity-100 hover:scale-110 ${project.isInBuild && 'pointer-events-none'}`}><Link href={project.link} target="_blank" >{project.title}</Link></p>
@@ -116,10 +86,13 @@ const ProjectCard = ({ project , language }:ProjectCardtype) => {
               />
             ))}
           </div>
+
+
         </div>
-      </div>
+      </motion.div>
+      
     </div>
   );
 };
 
-export default ProjectCard;
+export default AccordeonCard;

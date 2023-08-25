@@ -1,9 +1,10 @@
 'use client'
-import React, {useEffect} from "react";
+import React from "react";
 import ProjectCard from "./ProjectCard";
-import useContextLanguage from "@/hooks/useContextLanguage";
+
 
 type ProjectListType = {
+  language: string
   projects: {
     title: string;
     thumbnailUrl?: any;
@@ -15,27 +16,15 @@ type ProjectListType = {
   }[];
 };
 
-const ProjectsList = ({ projects}: ProjectListType) => {
+const ProjectsList = ({projects, language }: ProjectListType) => {
 
-  const language = useContextLanguage()
-
-  useEffect(() => {
-    const getLanguage = localStorage.getItem("language");
   
-    if (getLanguage === "EN") {
-      language.dispatch({ type: "CHANGE_LANG" });
-    }
-  
-    if (!getLanguage) {
-      language.dispatch({ type: "RESET" });
-    }
-  }, [language]);
 
   return (
     <div className="px-4 md:px-12 mt-4 space-y-8">
-      <div className="grid  lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+      <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 hidden">
         {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} language={language.state}/>
+          <ProjectCard key={project.title} project={project} language={language}/>
         ))}
       </div>
     </div>

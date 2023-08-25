@@ -15,15 +15,15 @@ export const metadata = {
 const AboutMeLayout = ({ children }: aboutMeLayoutType) => {
   return (
     <>
-      <div className="flex flex-row bg-gray-200 dark:bg-gray-700">
+      
         <div
-          className="flex bg-gray-200"
+          className="flex bg-gray-200 dark:bg-gray-700"
         >
           <AsideBar meta={metadata.title} />
           <SideBar meta={metadata.title} />
           {children}
         </div>
-      </div>
+      
     </>
   );
 };
