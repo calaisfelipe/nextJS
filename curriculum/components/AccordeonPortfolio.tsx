@@ -3,7 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Grid, Pagination, Navigation, A11y } from "swiper/modules";
 import AccordeonCard from "./AccordeonCard";
-import { projectsFirstRow } from "@/data/projects";
+import { projectSecondRow } from "@/data/projects";
 
 import "./Accordeon.css";
 import "swiper/css";
@@ -17,24 +17,26 @@ const AccordeonPortfolio = ({ language }: { language: string }) => {
       <Swiper
 
         spaceBetween={10}
-        centeredSlides={true}
+       
         slidesPerView={2}
         grabCursor={true}
+        
         pagination={{
           clickable: true,
         }}
         navigation={false}
        grid={{
         rows: 1
+
         
        }}
        
         modules={[Grid,Pagination, Navigation, A11y]}
-        className="mySwiper sm:h-0 sm:w-0 w-full h-60 sm:invisible visible my-10"
+        className="mySwiper sm:h-0 sm:w-0 w-full sm:min-h-[0] min-h-[340px] sm:invisible visible my-10 p-4"
       >
-        {projectsFirstRow.map((project) => (
+        {projectSecondRow.map((project) => (
           <SwiperSlide key={project.title}>
-            <AccordeonCard project={project} language={language} />
+           { <AccordeonCard project={project} language={language} />}
           </SwiperSlide>
         ))}
       </Swiper>

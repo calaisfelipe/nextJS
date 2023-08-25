@@ -49,7 +49,7 @@ const AboutMePage = () => {
 
   return (
     <motion.div
-      className="md:h-screen w-full bg-gray-200 dark:bg-gray-700 dark:text-white flex justify-center "
+      className="md:h-screen h-auto w-full bg-gray-200 dark:bg-gray-700 dark:text-white flex justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2, duration: 1 }}
@@ -137,8 +137,8 @@ const AboutMePage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center ml-2 p-2 sm:mb-0 mb-2">
-            <h3 className="font-bold text-2xl dark:text-blue-400 mb-2">
+          <div className="flex flex-col justify-center ml-2 p-2">
+            <h3 className="font-bold text-2xl dark:text-blue-400 ">
               {language.state === "EN" ? `What I Do?` : "Oque eu faço?"}
             </h3>
             <div className="flex flex-col gap-1">
