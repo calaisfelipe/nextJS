@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import Image from "next/image";
-import commingsoon from "@/public/images/comingsoonredimensionada.png";
+import commingsoon from "@/public/images/commingSoon.jpg";
 import Link from "next/link";
 
 

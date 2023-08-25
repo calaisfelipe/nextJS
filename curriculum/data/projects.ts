@@ -8,7 +8,8 @@ import js from "@/public/images/js.png";
 import prisma from "@/public/images/prisma.png";
 import mongo from "@/public/images/mongo.png";
 
-export const projectsFirstRow = [
+
+export const projectsFirstRow =[
   {
     title: "Rocket LandPage",
     isInBuild: false,
@@ -41,12 +42,13 @@ export const projectsFirstRow = [
       "https://upload.wikimedia.org/wikipedia/commons/0/04/MsnClone2.png",
     tecnologies: [nextlogo, tailwind, reactLogo, prisma, mongo],
   },
-  { title: "Projeto 6", isInBuild: true, link: "#" },
-  { title: "Projeto 7", isInBuild: true, link: "#" },
-  { title: "Projeto 8", isInBuild: true, link: "#" },
-];
+  
 
-export const projectSecondRow = [
+]
+
+
+
+export const firstRow = [
   {
     title: "Rocket LandPage",
     isInBuild: false,
@@ -54,11 +56,13 @@ export const projectSecondRow = [
       "https://upload.wikimedia.org/wikipedia/commons/5/5f/Rocketlandpage.png",
     tecnologies: [html5, css, js, reactLogo, tailwind],
     link: "https://projetos-web-rockets.vercel.app/",
-    title2: "The Boys Home Page",
-    isInBuild2: false,
-    link2: "https://next-js-plum-two.vercel.app/",
-    tecnologies2: [html5, css],
-    thumbnailUrl2:
+  },
+  {
+    title: "The Boys Home Page",
+    isInBuild: false,
+    link: "https://next-js-plum-two.vercel.app/",
+    tecnologies: [html5, css],
+    thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/2/26/Theboysthumbnail.png",
   },
   {
@@ -68,13 +72,19 @@ export const projectSecondRow = [
     tecnologies: [html5, css, js],
     thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/3/31/Linktree.png",
-    title2: "Msn Clone",
-    isInBuild2: false,
-    link2: "https://msn-clone-nxy7a443y-calaisfelipe.vercel.app/",
-    thumbnailUrl2:
-      "https://upload.wikimedia.org/wikipedia/commons/0/04/MsnClone2.png",
-    tecnologies2: [nextlogo, tailwind, reactLogo, prisma, mongo],
   },
-  { title: "Projeto 6", isInBuild: true, link: "#" ,
-   title2: "Projeto 7", isInBuild2: true, link2: "#" },
+  
+  
 ];
+
+export const secondRow = [
+  {
+    title: "Msn Clone",
+    isInBuild: false,
+    link: "https://msn-clone-nxy7a443y-calaisfelipe.vercel.app/",
+    thumbnailUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/0/04/MsnClone2.png",
+    tecnologies: [nextlogo, tailwind, reactLogo, prisma, mongo],
+  },
+  
+]
