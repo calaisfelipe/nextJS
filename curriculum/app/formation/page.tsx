@@ -5,6 +5,7 @@ import FormationBox from "@/components/FormationBox";
 import useContextLanguage from "@/hooks/useContextLanguage";
 import { motion } from "framer-motion";
 import Accordeon from "@/components/Accordeon";
+import Skills from "@/components/Skills";
 
 const FormationPage = () => {
   const language = useContextLanguage();
@@ -87,9 +88,10 @@ const FormationPage = () => {
           </div>
         </motion.div>
 
-        <div className="md:hidden w-[500px] h-[380px]">
-          <Accordeon language={language.state}/>
-        </div>
+        
+          <Skills language={language.state}/>
+        
+
       </div>
     </div>
   );

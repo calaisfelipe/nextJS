@@ -42,6 +42,22 @@ export const projectsFirstRow =[
       "https://upload.wikimedia.org/wikipedia/commons/0/04/MsnClone2.png",
     tecnologies: [nextlogo, tailwind, reactLogo, prisma, mongo],
   },
+  {
+    title:"Apple landingPage clone",
+    isInBuild: false,
+    link: "https://appleclonelandpage.vercel.app/",
+    thumbnailUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/5/53/Applelandingpage.png",
+    tecnologies:[html5, css, js]
+  },
+  {
+    title:"Imobiliaria landingPage ",
+    isInBuild: false,
+    link: "https://imobiliarialandingpage.vercel.app/",
+    thumbnailUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/2/2c/Imobiliarialandingpage.png",
+    tecnologies:[html5, css, js]
+  },
   
 
 ]
@@ -85,6 +101,22 @@ export const secondRow = [
     thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/0/04/MsnClone2.png",
     tecnologies: [nextlogo, tailwind, reactLogo, prisma, mongo],
+  },
+  {
+    title:"Apple landingPage clone",
+    isInBuild: false,
+    link: "https://appleclonelandpage.vercel.app/",
+    thumbnailUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/5/53/Applelandingpage.png",
+    tecnologies:[html5, css, js]
+  },
+  {
+    title:"Imobiliaria landingPage ",
+    isInBuild: false,
+    link: "https://imobiliarialandingpage.vercel.app/",
+    thumbnailUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/2/2c/Imobiliarialandingpage.png",
+    tecnologies:[html5, css, js]
   },
   
 ]

@@ -15,16 +15,16 @@ const FormationBox = ({
   duration,
 }: FormationBoxType) => {
   return (
-    <div className="flex flex-col lg:w-96 md:w-48   w-54 p-2 mt-2 gap-1 bg-black justify-center ">
+    <div className="flex flex-col lg:w-96 md:w-48   w-full p-2 mt-2 gap-1 bg-black justify-center ">
       
-      <h3 className="text-yellow-500 dark:text-blue-400 text-lg font-bold">{duration}</h3>
+      <h3 className="text-yellow-500 dark:text-blue-400 text-md font-bold">{duration}</h3>
       
       
       <div className="text-white font-extrabold text-lg">{subtitle}</div>
       <h5 className="font-bold text-xs text-gray-400 uppercase tracking-wider">
         {title}
       </h5>
-      <p className="text-sm text-gray-500 tracking-tight grow">
+      <p className="text-sm text-gray-500 tracking-tighter grow">
         {description}
       </p>
     </div>

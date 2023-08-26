@@ -44,17 +44,3 @@
     
 } 
 
-
-.personalButton:active::before{
-    background-color: purple;
-    transition: 8s;
-}
-
-.personalButton:hover{
-    color: #ffffff;
-}
-
-.personalButton:hover::before{
-    top:-30px;
-    left: -30px;
-}

@@ -16,6 +16,7 @@ import git from "@/public/images/Git-Logo-White.png";
 import useContextLanguage from "@/hooks/useContextLanguage";
 import { useMotionValue, useTransform, animate, motion } from "framer-motion";
 
+
 const AboutMePage = () => {
   const tecnologies = [css, js, ts, html5, reactLogo, tailwind, nextlogo, git];
   const language = useContextLanguage();
@@ -135,7 +136,8 @@ const AboutMePage = () => {
                   : "Anos de experiencia"}
               </p>
             </div>
-          </div>
+              </div>
+              
 
           <div className="flex flex-col justify-center ml-2 p-2">
             <h3 className="font-bold text-2xl dark:text-blue-400 ">
