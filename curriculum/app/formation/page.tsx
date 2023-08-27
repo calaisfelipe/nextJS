@@ -4,7 +4,6 @@ import Tittle from "@/components/Tittle";
 import FormationBox from "@/components/FormationBox";
 import useContextLanguage from "@/hooks/useContextLanguage";
 import { motion } from "framer-motion";
-import Accordeon from "@/components/Accordeon";
 import Skills from "@/components/Skills";
 
 const FormationPage = () => {
