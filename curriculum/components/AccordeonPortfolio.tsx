@@ -32,7 +32,7 @@ const AccordeonPortfolio = ({ language }: { language: string }) => {
        }}
        
         modules={[Grid,Pagination, Navigation, A11y]}
-        className="mySwiper sm:h-0 sm:w-0 w-full h-full sm:invisible visible my-10 p-4"
+        className="mySwiper sm:h-0 sm:w-0 w-full h-full sm:invisible visible  p-4"
       >
         
           <SwiperSlide >

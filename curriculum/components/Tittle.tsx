@@ -8,17 +8,18 @@ const monstserrat = Montserrat({
 
 const Tittle = ({ text }: { text: string }) => {
   return (
-    <div className="w-full text-center relative h-20 dark:text-white">
+    <div className="w-full text-center relative h-20 dark:text-white mb-1">
       <div
         className={` ${monstserrat.className} font-extrabold text-4xl absolute top-0 left-[50%] translate-x-[-50%] `}
       >
         {text}
       </div>
       <div
-        className={` ${monstserrat.className} w-full text-7xl font-extrabold opacity-10 absolute top-2 left-[50%] translate-x-[-50%] `}
+        className={` ${monstserrat.className} w-full sm:text-7xl font-extrabold opacity-10 absolute top-2 left-[50%] translate-x-[-50%] text-6xl `}
       >
         {text}
       </div>
+      <div className="w-full h-20 sm:hidden"></div>
     </div>
   );
 };

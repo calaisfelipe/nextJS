@@ -23,7 +23,7 @@ const ProjectCard = ({ project , language }:ProjectCardtype) => {
   
 
   return (
-    <div className="group bg-transparent col-span relative sm:h-[12vw] h-full ">
+    <div className="group bg-transparent col-span relative  sm:h-[12vw] h-full ">
       <Image
         className={
       `cursor-pointer

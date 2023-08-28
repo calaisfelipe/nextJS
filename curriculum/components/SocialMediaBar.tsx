@@ -6,6 +6,7 @@ import {
   BsGithub,
   BsTwitter,
   BsWhatsapp,
+  BsLinkedin
 } from "react-icons/bs";
 import SocialMediaLink from "./SocialMediaLink";
 
@@ -41,6 +42,11 @@ const SocialMediaBar = ({contact}:ParamProps) => {
       icon: BsWhatsapp,
       label: "Whatsapp",
       href: "https://wa.me/5531995196573",
+    },
+    {
+      icon: BsLinkedin,
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/felipe-calais/",
     },
   ];
 

@@ -6,12 +6,20 @@ import FormationBox from "./FormationBox";
 import {BiLogoJavascript,BiLogoTypescript, BiLogoReact,BiLogoHtml5,BiLogoTailwindCss,BiLogoCss3, BiLogoMongodb, BiLogoFigma} from 'react-icons/bi'
 import {TbBrandNextjs,TbBrandPrisma} from 'react-icons/tb'
 
+const contentAnimation = {
+  hidden:{opacity:0},
+  visible:{opacity:1,origin:0, transition:{duration:1}}
+  
+}
+
+
 const Skills = ({language}:{language:string}) => {
   const select = useSkills();
 
   return (
+   
     <AnimatePresence>
-      <div className="w-full ml-10 md:hidden mt-2">
+      <div className="w-full mx-10 md:hidden mt-2 p-2">
         <div className="flex flex-row gap-4">
           <div
             className={`  cursor-pointer
@@ -71,7 +79,7 @@ const Skills = ({language}:{language:string}) => {
           </div>
         </div>
         <div>
-           {select.selected === 'school' && <div className="flex flex-col gap-1">
+           {select.selected === 'school' && <motion.div className="flex flex-col gap-1 " variants={contentAnimation} initial='hidden' animate='visible' exit='hidden'>
           <FormationBox
                 duration="2009-2011"
                 title="Cotemig - Belo horizonte/MG"
@@ -85,10 +93,10 @@ const Skills = ({language}:{language:string}) => {
                 subtitle={language === 'EN' ? "Fluent English" :"Inglês Fluente"}
                 description={language === 'EN' ? "Advanced English and fluency in conversation." :"Inglês avançado e fluência em conversação."}
               />
-          </div>
+          </motion.div>
            }     
 
-        {select.selected === 'experience' && <div className="flex flex-col gap-1">
+        {select.selected === 'experience' && <motion.div className="flex flex-col gap-1" variants={contentAnimation} initial='hidden' animate='visible' exit='hidden'>
           <FormationBox
                 duration="2011-2013"
                 title="Realteq - Automação comercial"
@@ -113,10 +121,10 @@ const Skills = ({language}:{language:string}) => {
                 subtitle={language === 'EN' ? "Web Developer/ Front end": "Desenvolvedor web/ Front end"}
                 description={language === 'EN' ? "Period dedicated to intense study in Front-End programming. Immersion in technologies such as HTML, CSS, JavaScript/TypeScript, react, NextJs and others.": "Periodo dedicado ao estudo intenso em programação Front-End. Imersão em tecnologias como HTML, CSS, JavaScript/TypeScript, react, NextJs e outras."}
               />
-          </div>}
+          </motion.div>}
 
           {select.selected === 'skills' && (
-            <div className="flex flex-col mt-3">
+            <motion.div className="flex flex-col mt-3 p-2" variants={contentAnimation} initial='hidden' animate='visible' exit='hidden'>
               <div className="flex flex-row gap-3">
                 <p>Web Developer - </p>
                 <div className="flex flex-row justify-center items-center gap-1">
@@ -139,13 +147,15 @@ const Skills = ({language}:{language:string}) => {
                 </div>
               </div>
 
-            </div>
+            </motion.div>
           )}
 
 
         </div>
       </div>
     </AnimatePresence>
+   
+
   );
 };
 
