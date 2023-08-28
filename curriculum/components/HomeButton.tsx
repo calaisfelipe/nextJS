@@ -35,7 +35,7 @@ const HomeButton = ({
     
     ${
       secondary
-        ? "text-black before:bg-black border-white px-[18px] py-[12px]"
+        ? "text-black before:bg-black  border-white px-[18px] py-[12px] "
         : "text-yellow-500 before:bg-yellow-500 border-yellow-500 px-[24px] py-[16px]"
     }
 

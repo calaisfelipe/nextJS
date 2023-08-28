@@ -15,7 +15,7 @@ const ServicesCard = ({title, description, icon:Icon}:ServicesCardType) => {
         <div>
             <Icon size={24} color=''/>
         </div>
-        <div className='dark:text-white text-yellow-500 text-md font-semibold '>
+        <div className='dark:text-white text-yellow-500 text-md font-semibold drop-shadow-xl'>
             {title}
         </div>
         <div className='dark:text-gray-300 font-light text-xs '>

@@ -2,7 +2,7 @@ import ts from "@/public/images/typescript.png";
 import html5 from "@/public/images/html-5.png";
 import reactLogo from "@/public/images/science.png";
 import tailwind from "@/public/images/Tailwind.png";
-import nextlogo from "@/public/images/next-js-logo.png";
+import nextlogo from "@/public/images/nextjs.png";
 import css from "@/public/images/css-3.png";
 import js from "@/public/images/js.png";
 import prisma from "@/public/images/prisma.png";

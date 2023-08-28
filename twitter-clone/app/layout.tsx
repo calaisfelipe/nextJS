@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import AuthContext from "@/context/AuthContext";
 import Sidebar from "@/components/Sidebar";
 import FollowBar from "@/components/FollowBar";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Toaster />
         <AuthContext>
           <div className="h-screen bg-black">
             <div className="container h-full mx-auto xl:px-30 max-w-6xl">

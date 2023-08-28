@@ -20,7 +20,7 @@ const AboutMeLayout = ({ children }: aboutMeLayoutType) => {
           className="flex bg-gray-200 dark:bg-gray-700"
         >
           <AsideBar meta={metadata.title} />
-          <SideBar meta={metadata.title} bottom />
+          <SideBar meta={metadata.title}  />
           {children}
         </div>
       

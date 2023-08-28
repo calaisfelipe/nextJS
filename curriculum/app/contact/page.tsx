@@ -107,9 +107,9 @@ const ContactPage = () => {
         <Tittle text={language.state === "EN" ? "Contact" : "Contato"} />
         <SocialMediaBar contact/>
 
-        <div className="flex md:flex-row flex-col gap-16 mt-8 w-full justify-center items-center">
-          <div className="md:flex hidden flex-col gap-2">
-            <div className="flex flex-col w-full mt-3 px-2">
+        <div className="flex md:flex-row flex-col md:gap-16 md:mt-8 w-full justify-center items-center">
+          <div className="sm:flex hidden flex-col gap-2">
+            <div className="flex flex-col w-full md:mt-3 md:px-2 md:mb-0 mb-4">
               <div className="text-md  font-semibold">
                 {language.state === "EN"
                   ? "Feel free to get in touch!"
@@ -121,7 +121,7 @@ const ContactPage = () => {
                   : "Espero que possamos trabalhar juntos no seu próximo projeto."}
               </p>
             </div>
-            <div className="flex flex-row justify-center items-center">
+            <div className="md:flex flex-row justify-center items-center hidden">
               <div>
                 <CiDesktop size={128} />
               </div>
@@ -131,7 +131,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-row justify-center items-center">
+            <div className="md:flex flex-row justify-center items-center hidden">
               <div>
                 <BsTelephone size={108} />
               </div>

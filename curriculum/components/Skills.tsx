@@ -19,13 +19,13 @@ const Skills = ({language}:{language:string}) => {
   return (
    
     <AnimatePresence>
-      <div className="w-full mx-10 md:hidden mt-2 p-2">
+      <div className="w-full mx-10  mt-2 p-2">
         <div className="flex flex-row gap-4">
           <div
             className={`  cursor-pointer
             ${
               select.selected === "school"
-                ? "text-yellow-500 dark:text-blue-500"
+                ? "font-extrabold text-yellow-500 dark:text-blue-500"
                 : "dark:text-white"
             }
             `}
@@ -34,7 +34,7 @@ const Skills = ({language}:{language:string}) => {
             {language === 'EN' ?'Schooling' : 'Escolaridade'}
             <motion.div
               exit={{ transition: { ease: "easeInOut" } }}
-              className={`border-t-2 border-black dark:border-white ${
+              className={`border-t-2 border-black dark:border-white  ${
                 select.selected === "school" ? "w-22" : "w-12"
               }`}
             ></motion.div>
@@ -44,7 +44,7 @@ const Skills = ({language}:{language:string}) => {
             className={` cursor-pointer
             ${
               select.selected === "experience"
-                ? "text-yellow-500 dark:text-blue-500"
+                ? " font-extrabold text-yellow-500 dark:text-blue-500"
                 : "dark:text-white"
             }
             `}
@@ -63,7 +63,7 @@ const Skills = ({language}:{language:string}) => {
             className={` cursor-pointer
             ${
               select.selected === "skills"
-                ? "text-yellow-500 dark:text-blue-500"
+                ? " font-extrabold text-yellow-500 dark:text-blue-500"
                 : "dark:text-white"
             }
             `}
@@ -96,7 +96,7 @@ const Skills = ({language}:{language:string}) => {
           </motion.div>
            }     
 
-        {select.selected === 'experience' && <motion.div className="flex flex-col gap-1" variants={contentAnimation} initial='hidden' animate='visible' exit='hidden'>
+        {select.selected === 'experience' && <motion.div className="flex lg:flex-row lg:flex-wrap lg:gap-x-2 flex-col gap-1" variants={contentAnimation} initial='hidden' animate='visible' exit='hidden'>
           <FormationBox
                 duration="2011-2013"
                 title="Realteq - Automação comercial"
