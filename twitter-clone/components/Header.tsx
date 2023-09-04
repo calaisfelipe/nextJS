@@ -3,6 +3,7 @@ import React, { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { BiArrowBack } from "react-icons/bi";
 
+
 type HeaderProps = {
   label?: string;
   showBackError?: boolean;
@@ -10,6 +11,7 @@ type HeaderProps = {
 
 const Header = ({ label, showBackError }: HeaderProps) => {
   const router = useRouter();
+  
 
   const handleBack = useCallback(() => {
     router.back();
@@ -20,6 +22,8 @@ const Header = ({ label, showBackError }: HeaderProps) => {
       <div className="flex flex-row items-center gap-2">
         {showBackError && <BiArrowBack size={20} color='white' onClick={handleBack} className='cursor-pointer hover:opacity-70 transition' /> }
         <h1 className="text-white text-xl font-semibold">{label}</h1>
+        <p className="text-white"></p>
+        
       </div>
     </div>
   );

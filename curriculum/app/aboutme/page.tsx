@@ -50,7 +50,7 @@ const AboutMePage = () => {
         <Tittle text={language.state === "EN" ? `About me` : "Sobre mim"} />
 
         <div className="w-full mt-2 sm:px-0 px-4">
-          <p className="text-2xl">
+          <p className="md:text-2xl text-xl ">
             {language.state === "EN" ? `I'm ` : "Eu sou o "}
             <span className="text-2xl 
             dark:text-blue-400 text-yellow-500 font-extrabold">
@@ -76,7 +76,7 @@ const AboutMePage = () => {
             <h3 className="font-bold text-2xl dark:text-blue-400 mb-1">
               {language.state === "EN" ? `What I Do?` : "Oque eu faço?"}
             </h3>
-            <SliderServices />
+            <SliderServices language={language} />
             
           </div>
         </div>

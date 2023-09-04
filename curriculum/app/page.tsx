@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { LanguageContext } from "@/context/language";
 import {motion} from 'framer-motion'
+import ParticleContainer from "@/components/ParticleContainer";
 
 const monoton = Monoton({
   subsets: ["latin"],
@@ -31,7 +32,9 @@ export default function Home() {
   }, [language]);
 
   return (
+    <>
     <main className="sm:grid  sm:grid-cols-2 flex flex-col sm:h-full h-[95vh] w-full relative md:overflow-hidden ">
+      
       <SideBar meta="Home" />
       <div className="flex flex-col sm:justify-center sm:pt-0 pt-14 items-center h-screen bg-gray-100 dark:bg-gray-700 dark:text-white">
         <div className="sm:hidden w-full flex justify-end items-center mr-0 relative">
@@ -75,11 +78,15 @@ export default function Home() {
               ? "Welcome, below you will be able to know a little more about me and my work, knowing some of my main projects."
               : "Seja muito bem vindo, a seguir você poderá conhecer um pouco mais sobre mim e sobre meu trabalho conhecendo alguns dos meus principais projetos."}
           </p>
+          <div className="flex flex-row gap-1">
+          <HomeButton type="button" text={language.state === "EN" ? "Resume" : "Resumo"} resume />
           <HomeButton
             type="button"
             text={language.state === "EN" ? "More about me" : "Mais sobre mim"}
             action={() => router.push("/aboutme")}
           />
+          </div>
+          
         </motion.div>
       </div>
       <div className="bg-white dark:bg-gray-700 h-screen relative hidden xl:block">
@@ -94,6 +101,10 @@ export default function Home() {
       <div
         className={`bg-[url("../public/images/ProfileFoto.png")] bg-cover grayscale bg-[#c3c3c3] h-screen bg-center hidden sm:block xl:bg-top xl:hidden`}
   ></div>
+  <ParticleContainer />
     </main>
+    
+    </>
+    
   );
 }

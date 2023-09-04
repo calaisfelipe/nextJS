@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h2>path</h2>  
+    
+<svg width="200" height="100" style="border: 2px solid black">
+<path stroke="#000"
+stroke-width="4"
+fill="none"
+
+d="M40,20 L40,80 A30,30 0 0,0 100,100Z"
+
+/>
+
+</svg>
+
+<h2>Defs</h2>
+
+<svg width="300" height="120" style="border: 2px solid black">
+    <defs>
+        <circle id="meu-circulo" r="25" cx="150" cy="50" />
+    </defs>
+
+    <use xlink:href="#meu-circulo" />
+    <use xlink:href="#meu-circulo" x="80" y="40" fill="red"/>
+</svg>
+
+<h2>g / symbol</h2>
+
+<svg width="300" height="120" style="border: 2px solid black">
+    <g fill="red">
+        <circle id="meu-circulo" r="25" cx="150" cy="50" />
+        <circle id="meu-circulo" r="25" cx="240" cy="50" />
+    </g>
+
+    
+</svg>
+
+<svg width="300" height="120" style="border: 2px solid black">
+
+    <symbol id="meu-simbolo" viewBox="0 0 400 240">
+        <circle  r="25" cx="150" cy="50" />
+    
+    </symbol>
+
+    <use xlink:href="#meu-simbolo" />
+    <use xlink:href="#meu-simbolo" x="80" y="40" fill="red"/>
+    
+</svg>
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg width="300" height="300" viewBox="0 0 300 300" style="border: 2px solid black;">
+      <circle r="25" cx="150" cy="125" fill="blue" >
+        <animate attributeName="fill" from="blue" to='#bff007'  dur="2s" repeatCount="indefinite"  />
+        <animate attributeName="r" from="25" to='35'  dur="2s" repeatCount="indefinite"  />
+
+    </circle>
+    </svg>
+
+    <svg width="300" height="300" >
+        <circle id="circ" r="30" cx="50" cy="50" fill="red" />
+        <rect id="rect" x="50" y="150" width="60" height="30" fill="green" />
+            <animate xlink:href="#circ" 
+            attributeName="cx" from="50" to="250" dur="2s"
+            fill="freeze" begin="click" id="animation-circle"
+            />
+            <animate xlink:href="#rect" 
+            attributeName="x" from="50" to="250" dur="2s"
+            fill="freeze" begin="animation-circle.begin + 1s"  id="animation-rect"
+            />
+
+        
+
+    </svg>
+  </body>
+</html>

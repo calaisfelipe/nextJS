@@ -1,23 +1,30 @@
 import { NextResponse } from "next/server";
+import { prismadb } from "@/lib/prisma";
+import { getServerSession } from "next-auth";
 import { NextApiRequest } from "next";
-import serverAuth from "@/lib/serverAuth";
+import options from "../auth/[...nextauth]/options";
 
+export async function GET(req: NextApiRequest) {
+  try {
+    const session = await getServerSession(options);
 
-export async function GET(req:NextApiRequest){
-
-    try{
-        const {currentUser} = await serverAuth(req)
-
-        if(!currentUser) {
-            return new NextResponse('Not logged in',{ status:401})
-        }
-
-        return NextResponse.json(currentUser)
-    
-    }catch(error){
-        console.log(error)
-        return new NextResponse('Something went wrong', {status:400})
+    if (!session) {
+      return new NextResponse("Not logged in", { status: 401 });
     }
-    
-}
 
+    const currentUser = await prismadb.user.findUnique({
+      where: {
+        email: session?.user?.email as string,
+      },
+    });
+
+    if (!currentUser) {
+      return new NextResponse("User not exist", { status: 401 });
+    }
+
+    return NextResponse.json(currentUser);
+  } catch (error) {
+    console.log(error);
+    return new NextResponse("Something went wrong", { status: 400 });
+  }
+}

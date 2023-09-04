@@ -4,6 +4,8 @@ import Modal from "../Modal";
 import useLoginModal from "@/hooks/useLogginModel";
 import Input from "../Input";
 import useRegisterModal from "@/hooks/useRegisterModal";
+import { signIn } from "next-auth/react";
+import { toast } from "react-hot-toast";
 
 const LoginModal = () => {
   const loginModal = useLoginModal();
@@ -18,6 +20,18 @@ const LoginModal = () => {
       setIsLoading(true);
 
       //TODO ADD LOG IN
+      await signIn("credentials", { email, password, redirect:false }).then((res) => {
+        
+        if(res?.error){
+          toast.error('Invalid Credentials',)
+        }
+
+        if (res?.ok && !res?.error) {
+          toast.success("Login success");
+        }
+
+
+      }).catch((error) => toast.error('Something went wrong' , error));
 
       loginModal.onClose();
     } catch (error) {
@@ -25,7 +39,7 @@ const LoginModal = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [loginModal]);
+  }, [loginModal, email, password]);
 
   const onToggle = useCallback(() => {
     if (isLoading) {
