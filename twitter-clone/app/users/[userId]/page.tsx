@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import UserHero from '@/components/users/UserHero'
 import UserBio from '@/components/users/UserBio'
 import EditModal from '@/components/modals/EditModal'
+import PostFeed from '@/components/posts/PostFeed'
 
 
 
@@ -24,6 +25,7 @@ const UserPage = ({params:{userId}}:{params:any}) => {
       <Header label={`${user.name}`} showBackError/>
       <UserHero userId={userId as string} />
       <UserBio userId={userId as string}/>
+      <PostFeed userId={userId as string}/>
 
       
       

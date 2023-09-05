@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import useSkills from "@/hooks/useSkills";
 import FormationBox from "./FormationBox";
 import {BiLogoJavascript,BiLogoTypescript, BiLogoReact,BiLogoHtml5,BiLogoTailwindCss,BiLogoCss3, BiLogoMongodb, BiLogoFigma} from 'react-icons/bi'
 import {TbBrandNextjs,TbBrandPrisma} from 'react-icons/tb'
+import skilltree from '@/public/images/skilltree.svg'
 
 const contentAnimation = {
   hidden:{opacity:0},
@@ -125,27 +127,9 @@ const Skills = ({language}:{language:string}) => {
 
           {select.selected === 'skills' && (
             <motion.div className="flex flex-col mt-3 p-2" variants={contentAnimation} initial='hidden' animate='visible' exit='hidden'>
-              <div className="flex flex-row gap-3">
-                <p>Web Developer - </p>
-                <div className="flex flex-row justify-center items-center gap-1">
-                  <span><BiLogoHtml5 size={18}/></span>
-                  <span><BiLogoCss3 size={18}/></span>
-                  <span><BiLogoJavascript size={18}/></span>
-                  <span><BiLogoTypescript size={18}/></span>
-                  <span><BiLogoTailwindCss size={18}/></span>
-                  <span><BiLogoReact size={18}/></span>
-                  <span><BiLogoMongodb size={18}/></span>
-                  <span><TbBrandNextjs size={18}/></span>
-                  <span><TbBrandPrisma size={18}/></span>
-                </div>
-              </div>
-              <div className="flex flex-row gap-3">
-                <p>UX/UI Design - </p>
-                <div className="flex flex-row justify-center items-center gap-1">
-                  <span><BiLogoFigma size={18}/></span>
-                  
-                </div>
-              </div>
+              
+
+              <Image src={skilltree}  alt='skilltree' />
 
             </motion.div>
           )}

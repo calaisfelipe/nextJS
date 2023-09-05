@@ -4,15 +4,17 @@ import usePosts from '@/hooks/usePosts'
 import useCurrentUser from '@/hooks/useCurrentUser'
 import PostItem from './PostItem'
 
-
+ 
 type PostFeedProps ={
   userId?:string
 
 }
 
-const PostFeed = (userId:PostFeedProps) => {
+const PostFeed = ({userId}:PostFeedProps) => {
   //const {data:currentUser} = useCurrentUser()
-  const {data:posts = []} = usePosts()
+
+  
+  const {data:posts = []} = usePosts(userId)
 
   console.log(posts)
 
