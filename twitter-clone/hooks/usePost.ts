@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import fetcher from "../lib/fetcher"; 
  
-const usePost = (postId: string) => {
+const usePost = (postId:string) => {
 
   const url = postId ? `/api/post/${postId}` : null
  

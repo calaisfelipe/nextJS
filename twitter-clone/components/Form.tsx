@@ -21,7 +21,9 @@ const Form = ({ placeholder, isComment, postId }: FormType) => {
   const loginModal = useLoginModal();
   const { data: currentUser } = useCurrentUser();
   const { mutate: mutatePosts } = usePosts();
-  const {mutate: mutatePost} = usePost(postId)
+    const {mutate: mutatePost} = usePost(postId!)
+  
+
 
   
 
