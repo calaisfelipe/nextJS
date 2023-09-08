@@ -40,6 +40,7 @@ const Avatar = ({userId, isLarge, hasBoader}:AvatarProps) => {
         style={{objectFit: 'cover', borderRadius:'100%'}}
         alt='avatar'
         onClick={onClick}
+        sizes='cover'
         
         
         />

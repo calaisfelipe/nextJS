@@ -22,7 +22,7 @@ const UserPage = ({params:{userId}}:{params:any}) => {
   return (
     <div className='text-white'>
       <EditModal user={user} mutate={mutate}/>
-      <Header label={`${user.name}`} showBackError/>
+      <Header label={`${user?.name}`} showBackError/>
       <UserHero userId={userId as string} />
       <UserBio userId={userId as string}/>
       <PostFeed userId={userId as string}/>

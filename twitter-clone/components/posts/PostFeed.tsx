@@ -11,17 +11,16 @@ type PostFeedProps ={
 }
 
 const PostFeed = ({userId}:PostFeedProps) => {
-  //const {data:currentUser} = useCurrentUser()
+ 
 
-  
   const {data:posts = []} = usePosts(userId)
 
-  console.log(posts)
+  
 
 
   return (
     <div className='text-white'>
-      {posts.map((post:Record<string , any>) => <PostItem userId={userId as string} key={post.id} data={post} />)}
+      {posts.map((post:Record<string , any>) => <PostItem userId={userId as string} key={post?.id} data={post} />)}
     </div>
   )
 }

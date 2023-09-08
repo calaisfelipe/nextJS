@@ -18,11 +18,11 @@ type RequestType = {
 
 const EditModal = ({ user, mutate }: { user: any; mutate: any }) => {
   const editModal = useEditModal();
-  const [name, setName] = useState(user.name);
-  const [username, setUsername] = useState(user.username);
-  const [profileImage, setProfileImage] = useState(user.profileImage);
-  const [coverImage, setCoverImage] = useState(user.coverImage);
-  const [bio, setBio] = useState(user.bio);
+  const [name, setName] = useState(user?.name);
+  const [username, setUsername] = useState(user?.username);
+  const [profileImage, setProfileImage] = useState(user?.profileImage);
+  const [coverImage, setCoverImage] = useState(user?.coverImage);
+  const [bio, setBio] = useState(user?.bio);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,7 +30,7 @@ const EditModal = ({ user, mutate }: { user: any; mutate: any }) => {
     try {
       await axios
         .patch("/api/edit", {
-          id: user.id,
+          id: user?.id,
           name,
           username,
           profileImage,
@@ -61,7 +61,7 @@ const EditModal = ({ user, mutate }: { user: any; mutate: any }) => {
     coverImage,
     mutate,
     editModal,
-    user.id,
+    user?.id,
   ]);
 
   const bodyContent = (

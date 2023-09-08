@@ -23,6 +23,6 @@ export async function GET(req:Request,{params:{userId}}:any) {
       return NextResponse.json(posts);
     } catch (error) {
       console.log(error);
-      return new NextResponse("Something went wrong", { status: 402 });
+      return new NextResponse("Something went wrong", { status: 400 });
     }
   }

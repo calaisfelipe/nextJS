@@ -15,22 +15,22 @@ const Sidebar =  () => {
   const session = useSession()
   const {data:currentUser} = useCurrentUser()
 
-  console.log(currentUser)
-
 
   const items = [
-    { label: "Home", href: "/", icon: BsHouseFill },
+    { label: "Home", href: "/", icon: BsHouseFill,},
     {
       label: "notifications",
       href: "/notifications",
       auth: true,
       icon: BsBellFill,
+      alert:currentUser?.hasNotification
     },
     {
       label: "profile",
       href: currentUser ? `/users/${currentUser.id}` : '#',
       icon: FaUser,
       auth: true,
+      
     },
   ];
 
@@ -48,6 +48,7 @@ const Sidebar =  () => {
               icon={item.icon}
               label={item.label}
               auth={item.auth}
+              alert={item.alert}
             />
           ))}
           {session?.data?.user && <SidebarItem onClick={signOut} icon={BiLogOut} label="LogOut" />}

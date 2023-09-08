@@ -6,12 +6,15 @@ import Button from "../Button";
 import { format } from "date-fns";
 import { BsCalendarEvent } from "react-icons/bs";
 import useEditModal from "@/hooks/useEditModal";
+import useFollow from "@/hooks/useFollow";
 
 
 const UserBio = ({ userId }: { userId: string }) => {
   const { data: user } = useUser({ userId });
   const currentUser = useSession();
   const editModal = useEditModal()
+
+  const {isFollowing, toggleFollowing} = useFollow(userId)
 
   const createdDate = useMemo(() => {
     if (!user?.createdAt) {
@@ -28,7 +31,7 @@ const UserBio = ({ userId }: { userId: string }) => {
         {currentUser.data?.user?.email === user.email ? (
           <Button label="Edit" onClick={editModal.onOpen} secondary />
         ) : (
-          <Button label="Follow" onClick={() => {}} secondary />
+          <Button label={isFollowing ? 'Unfollow' : "Follow"} onClick={toggleFollowing} secondary={!isFollowing} outline={isFollowing}/>
         )}
       </div>
 

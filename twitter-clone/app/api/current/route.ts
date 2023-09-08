@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
 import { prismadb } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
-import { NextApiRequest } from "next";
 import options from "../auth/[...nextauth]/options";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req:Request) {
   try {
     const session = await getServerSession(options);
 

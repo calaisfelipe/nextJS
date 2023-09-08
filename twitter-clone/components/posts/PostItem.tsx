@@ -6,37 +6,52 @@ import useLoginModal from "@/hooks/useLogginModel";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { formatDistanceToNowStrict } from "date-fns";
 import Avatar from "../Avatar";
-import { AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineMessage } from "react-icons/ai";
+import useLike from "@/hooks/useLike";
 
 type PostFeedProps = {
   userId?: string;
   data: Record<string, any>;
-};
+  postPage?:boolean
+}; 
 
-const PostItem = ({ userId, data }: PostFeedProps) => {
+const PostItem = ({ userId, data ,postPage }: PostFeedProps) => {
   const { data: currentUser } = useCurrentUser();
+
   const router = useRouter();
   const LoginModal = useLoginModal();
+  const {hasLiked, toggleLike} = useLike({postId: data.id, userId})
 
   const goToUser = useCallback(
     (event: any) => {
       event.stopPropagation();
-      router.push(`users/${data.user.id}`);
+      router.push(`/users/${data.user.id}`);
     },
     [router, data.user.id]
   );
 
   const goToPost = useCallback(() => {
-    router.push(`users/${data.id}`);
-  }, [router, data.id]);
+    if(postPage){
+      return
+    }else{
+      router.push(`/posts/${data.id}`)
+    }
+    ;
+  }, [router, data.id, postPage]);
 
   const onLIke = useCallback(
     (event: any) => {
       event.stopPropagation();
 
-      LoginModal.onOpen();
+      if(!currentUser){
+       return LoginModal.onOpen();
+      }
+
+      toggleLike()
+     
+
     },
-    [LoginModal]
+    [LoginModal, currentUser, toggleLike]
   );
 
   const createdAt = useMemo(() => {
@@ -84,9 +99,9 @@ const PostItem = ({ userId, data }: PostFeedProps) => {
                 <p>{data.comments?.length || 0}</p>
               </div>
 
-              <div className="flex flex-row items-center text-neutral-500 gap-2 cursor-pointer transition hover:text-red-500" onClick={onLIke}>
-                <AiOutlineHeart size={20}/>
-                <p>{data.comments?.length || 0}</p>
+              <div className={`flex flex-row items-center  gap-2 cursor-pointer transition hover:text-red-500 ${hasLiked ? 'text-red-500' : 'text-neutral-500'}`} onClick={onLIke}>
+                {hasLiked ? <AiFillHeart size={20} /> : <AiOutlineHeart size={20}/>}
+                <p>{data.likedIds?.length}</p>
               </div>
               
 

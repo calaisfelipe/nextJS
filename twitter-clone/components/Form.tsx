@@ -8,6 +8,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import Avatar from "./Avatar";
 import Button from "./Button";
+import usePost from "@/hooks/usePost";
 
 type FormType = {
   placeholder?: string;
@@ -20,8 +21,9 @@ const Form = ({ placeholder, isComment, postId }: FormType) => {
   const loginModal = useLoginModal();
   const { data: currentUser } = useCurrentUser();
   const { mutate: mutatePosts } = usePosts();
+  const {mutate: mutatePost} = usePost(postId)
 
-  console.log(currentUser);
+  
 
   const [body, setBody] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -30,12 +32,16 @@ const Form = ({ placeholder, isComment, postId }: FormType) => {
     try {
       setIsLoading(true);
 
-      await axios.post("/api/posts",  {body} ).then((res) => {
+      const url = isComment ? `/api/comments?postId=${postId}` :"/api/posts"
+
+      await axios.post( url,{body} ).then((res) => {
         if (res.status === 200) {
+          isComment ? toast.success("Comment Created") :
           toast.success("Tweet Created");
         }
       });
 
+      isComment ? mutatePost() : null 
       setBody("");
       mutatePosts();
     } catch (error) {
@@ -44,7 +50,7 @@ const Form = ({ placeholder, isComment, postId }: FormType) => {
     } finally {
       setIsLoading(false);
     }
-  }, [body, mutatePosts]);
+  }, [body, mutatePosts, isComment, postId, mutatePost]);
 
   return (
     <div className="text-white border-b-[1px] border-neutral-800 px-5 py-2">
