@@ -13,7 +13,7 @@ import Link from 'next/link'
 const SideBar = ({meta, bottom}:{meta:string, bottom?:boolean}) => {
   return (
     <>
-    <div className={`sm:block bg-yellow-500 dark:bg-blue-900  absolute sm:top-[25%] sm:left-[95%] sm:bottom-auto sm:w-fit w-full flex justify-center ${bottom ?'bottom-[-4.3%]' : 'bottom-[-5.3%]' }  z-50 sm:rounded-full py-2` }>
+    <div className={`sm:block bg-cyan-700 dark:bg-blue-900  absolute sm:top-[25%] sm:left-[95%] sm:bottom-auto sm:w-fit w-full flex justify-center ${bottom ?'bottom-[-4.3%]' : 'bottom-[-5.3%]' }  z-50 sm:rounded-full py-2` }>
         <div className='flex sm:flex-col flex-row  p-1 '>
             <div className='flex items-center justify-center sm:flex-col flex-row sm:gap-2 gap-3'>
                 <Link rel="stylesheet" href="/" className={`hover:text-white  ${meta === 'Home' && 'text-white'}`} > 

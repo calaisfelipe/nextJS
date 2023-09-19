@@ -34,10 +34,10 @@ const MobileAboutme = ({language, actions}: MobileAboutmeType) => {
       
       <div className="flex flex-col justify-center items-center p-2 lg:p-4 w-[20%] md:w-auto">
         <div className="flex flex-row">
-          <motion.div className="text-2xl text-yellow-500 dark:text-blue-400 lg:text-6xl">
+          <motion.div className="text-2xl text-cyan-700 dark:text-blue-400 lg:text-6xl">
             {actions.rounded}
           </motion.div>
-          <span className="text-2xl text-yellow-500 dark:text-blue-400 lg:text-6xl ">
+          <span className="text-2xl text-cyan-700 dark:text-blue-400 lg:text-6xl ">
             +
           </span>
         </div>
@@ -49,10 +49,10 @@ const MobileAboutme = ({language, actions}: MobileAboutmeType) => {
       </div>
       <div className="flex flex-col justify-center items-center p-2 lg:p-4 w-[20%] md:w-auto ">
         <div className="flex flex-row">
-          <motion.div className="text-2xl text-yellow-500 dark:text-blue-400 lg:text-6xl">
+          <motion.div className="text-2xl text-cyan-700 dark:text-blue-400 lg:text-6xl">
             {actions.rounded3}
           </motion.div>
-          <span className="text-2xl text-yellow-500 dark:text-blue-400 lg:text-6xl ">
+          <span className="text-2xl text-cyan-700 dark:text-blue-400 lg:text-6xl ">
             +
           </span>
         </div>
@@ -64,10 +64,10 @@ const MobileAboutme = ({language, actions}: MobileAboutmeType) => {
       </div>
       <div className="flex flex-col justify-center items-center p-2 lg:p-4 w-[20%] md:w-auto">
         <div className="flex flex-row">
-          <motion.div className="text-2xl lg:text-6xl text-yellow-500 dark:text-blue-400">
+          <motion.div className="text-2xl lg:text-6xl text-cyan-700 dark:text-blue-400">
             {actions.rounded2}
           </motion.div>
-          <span className="text-2xl lg:text-6xl text-yellow-500 dark:text-blue-400 ">
+          <span className="text-2xl lg:text-6xl text-cyan-700 dark:text-blue-400 ">
             +
           </span>
         </div>

@@ -44,7 +44,7 @@ const AccordeonCard = ({ project, language }: ProjectCardtype) => {
             >
               <div className="flex flex-row items-center gap-3 justify-center">
                 <p
-                  className={`text-white font-extrabold hover:text-yellow-500 hover:dark:text-blue-400  hover:scale-150 transition `}
+                  className={`text-white font-extrabold hover:text-cyan-700 hover:dark:text-blue-400  hover:scale-150 transition `}
                 >
                   <Link href={item.link} target="_blank">
                     {item.title}

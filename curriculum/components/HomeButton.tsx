@@ -40,7 +40,7 @@ const HomeButton = ({
 
     ${secondary && "text-black before:bg-black  border-white px-[18px] py-[12px] dark:border-blue-400 dark:text-blue-400 dark:before:bg-blue-400 dark:hover:text-white"}
 
-    ${!secondary && !resume && "text-yellow-500 before:bg-yellow-500 border-yellow-500 md:px-[24px] md:py-[16px] px-[12px] py-[10px] dark:border-blue-400 dark:text-blue-400 dark:before:bg-blue-400 dark:hover:text-white"}
+    ${!secondary && !resume && "text-cyan-700 before:bg-cyan-700 border-cyan-700 md:px-[24px] md:py-[16px] px-[12px] py-[10px] dark:border-blue-400 dark:text-blue-400 dark:before:bg-blue-400 dark:hover:text-white"}
 
     disabled:bg-slate-500 disabled:bg-opacity-30 disabled:pointer-events-none
 

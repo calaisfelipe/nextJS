@@ -53,7 +53,7 @@ const AboutMePage = () => {
           <p className="md:text-2xl text-xl ">
             {language.state === "EN" ? `I'm ` : "Eu sou o "}
             <span className="text-2xl 
-            dark:text-blue-400 text-yellow-500 font-extrabold">
+            dark:text-blue-400 text-cyan-700 font-extrabold">
               Felipe Calais, <br/>
             </span>
             {language.state === "EN" ? `Web-Developer / Front-end` : "Desenvolvedor web / Front-end"}

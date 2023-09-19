@@ -11,7 +11,7 @@ const AsideBar = ({meta}:{meta:string}) => {
   const language = useContextLanguage()
 
   return (
-    <div className="flex-col w-44 bg-yellow-500 dark:bg-blue-900 hidden sm:flex">
+    <div className="flex-col w-44 bg-cyan-700 dark:bg-blue-900 hidden sm:flex">
       <div>
         <Image
           src={ProfilePhoto}
@@ -21,7 +21,7 @@ const AsideBar = ({meta}:{meta:string}) => {
           className="grayscale bg-[#c3c3c3]"
         />
         <div className="w-full text-center mt-1 font-bold text-xl dark:text-white dark:bg-opacity-10 ">Felipe Calais</div>
-        <p className="tracking-tighter text-xs w-full text-center font-semibold opacity-40 dark:text-white text-gray-600">Web Developer / Front-End</p>
+        <p className="tracking-tighter text-xs w-full text-center font-semibold opacity-40 text-white ">Web Developer / Front-End</p>
       </div>
       <div className="lg:h-full lg:mt-0 sm:mt-6 flex flex-col justify-center items-center">
         <div className="flex flex-col items-center justify-center">

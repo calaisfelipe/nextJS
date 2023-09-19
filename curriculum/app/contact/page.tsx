@@ -147,7 +147,7 @@ const ContactPage = () => {
           </div>
 
           <form
-            className="w-fit bg-yellow-500 dark:bg-gray-700 p-4 flex flex-col gap-2 items-center rounded-md "
+            className="w-fit bg-cyan-700 dark:bg-gray-700 p-4 flex flex-col gap-2 items-center rounded-md "
             onSubmit={handleSubmit(submitForm)}
           >
             <div className="my-2">
@@ -161,7 +161,7 @@ const ContactPage = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="email"
-                className="text-sm text-gray-600 dark:text-white  font-semibold"
+                className="text-sm text-white  font-semibold"
               >
                 E-mail:
               </label>
@@ -188,7 +188,7 @@ const ContactPage = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="assunto"
-                className="text-sm text-gray-600 dark:text-white  font-semibold"
+                className="text-sm text-white  font-semibold"
               >
                 {language.state === "EN" ? "Subject:" : "Assunto: "}
               </label>
@@ -210,7 +210,7 @@ const ContactPage = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="message"
-                className="text-sm text-gray-600 dark:text-white font-semibold"
+                className="text-sm text-white font-semibold"
               >
                 {language.state === "EN" ? "Message:" : "Mensagem:"}
               </label>

@@ -27,7 +27,7 @@ const Skills = ({language}:{language:string}) => {
             className={`  cursor-pointer
             ${
               select.selected === "school"
-                ? "font-extrabold text-yellow-500 dark:text-blue-500"
+                ? "font-extrabold text-cyan-700 dark:text-blue-500"
                 : "dark:text-white"
             }
             `}
@@ -46,7 +46,7 @@ const Skills = ({language}:{language:string}) => {
             className={` cursor-pointer
             ${
               select.selected === "experience"
-                ? " font-extrabold text-yellow-500 dark:text-blue-500"
+                ? " font-extrabold text-cyan-700 dark:text-blue-500"
                 : "dark:text-white"
             }
             `}
@@ -65,7 +65,7 @@ const Skills = ({language}:{language:string}) => {
             className={` cursor-pointer
             ${
               select.selected === "skills"
-                ? " font-extrabold text-yellow-500 dark:text-blue-500"
+                ? " font-extrabold text-cyan-700 dark:text-blue-500"
                 : "dark:text-white"
             }
             `}

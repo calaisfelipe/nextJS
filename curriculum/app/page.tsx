@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { LanguageContext } from "@/context/language";
 import {motion} from 'framer-motion'
 import ParticleContainer from "@/components/ParticleContainer";
+import Link from "next/link";
 
 const monoton = Monoton({
   subsets: ["latin"],
@@ -47,7 +48,7 @@ export default function Home() {
             className="grayscale mb-2 z-50 absolute top-0 left-50 rounded-[100%]"
           />
 
-        <div className="clippyMobile bg-yellow-500 dark:bg-white h-[220px] w-full ">
+        <div className="clippyMobile bg-cyan-700 dark:bg-white h-[220px] w-full ">
         
         </div>
         
@@ -64,12 +65,12 @@ export default function Home() {
           <p className="text-2xl xl:text-5xl font-bold mb-1 ">
             {language.state === "EN" ? `I'M` : "Eu sou o"}
             <span
-              className={`${monoton.className} text-yellow-500 dark:text-blue-400 ml-2 `}
+              className={`${monoton.className} text-cyan-700  dark:text-blue-400 ml-2 `}
             >
               Felipe Calais
             </span>
           </p>
-          <div className="bg-yellow-500 dark:bg-blue-900 dark:text-white p-1 font-bold w-fit text-sm uppercase xl:text-lg mt-1 lg:mt-2">
+          <div className="bg-cyan-700 dark:bg-blue-900 text-white p-1 font-bold w-fit text-sm uppercase xl:text-lg mt-1 lg:mt-2">
             Web Developer / Front-end
           </div>
 
@@ -79,7 +80,7 @@ export default function Home() {
               : "Seja muito bem vindo, a seguir você poderá conhecer um pouco mais sobre mim e sobre meu trabalho conhecendo alguns dos meus principais projetos."}
           </p>
           <div className="flex flex-row gap-1">
-          <HomeButton type="button" text={language.state === "EN" ? "Resume" : "Resumo"} resume />
+          <Link href='https://upload.wikimedia.org/wikipedia/commons/3/39/CURRICULUMVITAR-FELIPECALAIS.pdf' target="_blank"><HomeButton type="button" text={language.state === "EN" ? "Resume" : "Resumo"} resume /></Link>
           <HomeButton
             type="button"
             text={language.state === "EN" ? "More about me" : "Mais sobre mim"}
@@ -91,7 +92,7 @@ export default function Home() {
       </div>
       <div className="bg-white dark:bg-gray-700 h-screen relative hidden xl:block">
       <Image src={ProfilePhoto} height={400} width={400} className="z-50 grayscale absolute top-10 left-24 rounded-[100%]" alt='profile photo'/>
-        <motion.div  animate={{rotateZ:360}} transition={{duration:1.5, ease:'easeInOut' }} className="bg-yellow-500 dark:bg-white clippy h-screen">
+        <motion.div  animate={{rotateZ:360}} transition={{duration:1.5, ease:'easeInOut' }} className="bg-cyan-700 dark:bg-white clippy h-screen">
         
             
         </motion.div>

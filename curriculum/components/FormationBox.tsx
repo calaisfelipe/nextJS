@@ -17,7 +17,7 @@ const FormationBox = ({
   return (
     <div className="flex flex-col lg:w-96 md:w-48 w-full p-2 mt-2 gap-1 bg-black justify-center shadow-xl ">
       
-      <h3 className="text-yellow-500 dark:text-blue-400 text-md font-bold">{duration}</h3>
+      <h3 className="text-cyan-700 dark:text-blue-400 text-md font-bold">{duration}</h3>
       
       
       <div className="text-white font-extrabold text-lg">{subtitle}</div>
