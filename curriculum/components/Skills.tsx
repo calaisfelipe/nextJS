@@ -6,7 +6,9 @@ import useSkills from "@/hooks/useSkills";
 import FormationBox from "./FormationBox";
 import {BiLogoJavascript,BiLogoTypescript, BiLogoReact,BiLogoHtml5,BiLogoTailwindCss,BiLogoCss3, BiLogoMongodb, BiLogoFigma} from 'react-icons/bi'
 import {TbBrandNextjs,TbBrandPrisma} from 'react-icons/tb'
-import skilltree from '@/public/images/skilltree.svg'
+import skilltree from '@/public/images/skilltreev3.svg'
+import skilltreedarkmode from '@/public/images/skilltreedarkmode.svg'
+import { useDarkMode } from "@/hooks/useDarkMode";
 
 const contentAnimation = {
   hidden:{opacity:0},
@@ -17,6 +19,7 @@ const contentAnimation = {
 
 const Skills = ({language}:{language:string}) => {
   const select = useSkills();
+  const {isDark} = useDarkMode()
 
   return (
    
@@ -129,7 +132,7 @@ const Skills = ({language}:{language:string}) => {
             <motion.div className="flex flex-col mt-3 p-2" variants={contentAnimation} initial='hidden' animate='visible' exit='hidden'>
               
 
-              <Image src={skilltree}  alt='skilltree' />
+              <Image src={isDark ? skilltreedarkmode : skilltree}  alt='skilltree' />
 
             </motion.div>
           )}
