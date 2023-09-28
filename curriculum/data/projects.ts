@@ -3,6 +3,7 @@ import html5 from "@/public/images/html-5.png";
 import reactLogo from "@/public/images/science.png";
 import tailwind from "@/public/images/Tailwind.png";
 import nextlogo from "@/public/images/nextjs.png";
+import nextWhite from '@/public/images/next-dot-js.svg'
 import css from "@/public/images/css-3.png";
 import js from "@/public/images/js.png";
 import prisma from "@/public/images/prisma.png";
@@ -14,40 +15,32 @@ export const projectsFirstRow =[
     title: "Rocket LandPage",
     isInBuild: false,
     thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/5/5f/Rocketlandpage.png",
+      "https://i.imgur.com/1gzxRqQ.png",
     tecnologies: [html5, css, js, reactLogo, tailwind],
     link: "https://projetos-web-rockets.vercel.app/",
   },
+  // {
+  //   title: "Linktree - web Page",
+  //   isInBuild: false,
+  //   link: "https://projetos-web-delta.vercel.app/",
+  //   tecnologies: [html5, css, js],
+  //   thumbnailUrl:
+  //     "https://upload.wikimedia.org/wikipedia/commons/3/31/Linktree.png",
+  // },
   {
-    title: "The Boys Home Page",
+    title: "Twitter Clone",
     isInBuild: false,
-    link: "https://next-js-plum-two.vercel.app/",
-    tecnologies: [html5, css],
+    link: "https://twitter-clone-coral-gamma.vercel.app/",
     thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/2/26/Theboysthumbnail.png",
-  },
-  {
-    title: "Linktree - web Page",
-    isInBuild: false,
-    link: "https://projetos-web-delta.vercel.app/",
-    tecnologies: [html5, css, js],
-    thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/3/31/Linktree.png",
-  },
-  {
-    title: "Msn Clone",
-    isInBuild: false,
-    link: "https://msn-clone-nxy7a443y-calaisfelipe.vercel.app/",
-    thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/0/04/MsnClone2.png",
-    tecnologies: [nextlogo, tailwind, reactLogo, prisma, mongo],
+      "https://i.imgur.com/v1zjJ4Q.png",
+    tecnologies: [nextWhite, tailwind, reactLogo, prisma, mongo],
   },
   {
     title:"Apple landingPage clone",
     isInBuild: false,
     link: "https://appleclonelandpage.vercel.app/",
     thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/5/53/Applelandingpage.png",
+      "https://i.imgur.com/QFGqSmv.png",
     tecnologies:[html5, css, js]
   },
   {
@@ -55,7 +48,7 @@ export const projectsFirstRow =[
     isInBuild: false,
     link: "https://imobiliarialandingpage.vercel.app/",
     thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/2/2c/Imobiliarialandingpage.png",
+      "https://i.imgur.com/fXjfHh3.png",
     tecnologies:[html5, css, js]
   },
   
@@ -69,37 +62,24 @@ export const firstRow = [
     title: "Rocket LandPage",
     isInBuild: false,
     thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/5/5f/Rocketlandpage.png",
+      "https://i.imgur.com/1gzxRqQ.png",
     tecnologies: [html5, css, js, reactLogo, tailwind],
     link: "https://projetos-web-rockets.vercel.app/",
   },
+  // {
+  //   title: "Linktree - web Page",
+  //   isInBuild: false,
+  //   link: "https://projetos-web-delta.vercel.app/",
+  //   tecnologies: [html5, css, js],
+  //   thumbnailUrl:
+  //     "https://upload.wikimedia.org/wikipedia/commons/3/31/Linktree.png",
+  // },
   {
-    title: "The Boys Home Page",
+    title: "Twitter Clone",
     isInBuild: false,
-    link: "https://next-js-plum-two.vercel.app/",
-    tecnologies: [html5, css],
+    link: "https://twitter-clone-coral-gamma.vercel.app/",
     thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/2/26/Theboysthumbnail.png",
-  },
-  {
-    title: "Linktree - web Page",
-    isInBuild: false,
-    link: "https://projetos-web-delta.vercel.app/",
-    tecnologies: [html5, css, js],
-    thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/3/31/Linktree.png",
-  },
-  
-  
-];
-
-export const secondRow = [
-  {
-    title: "Msn Clone",
-    isInBuild: false,
-    link: "https://msn-clone-nxy7a443y-calaisfelipe.vercel.app/",
-    thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/0/04/MsnClone2.png",
+      "https://i.imgur.com/v1zjJ4Q.png",
     tecnologies: [nextlogo, tailwind, reactLogo, prisma, mongo],
   },
   {
@@ -107,15 +87,22 @@ export const secondRow = [
     isInBuild: false,
     link: "https://appleclonelandpage.vercel.app/",
     thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/5/53/Applelandingpage.png",
+      "https://i.imgur.com/QFGqSmv.png",
     tecnologies:[html5, css, js]
   },
+  
+  
+];
+
+export const secondRow = [
+  
+  
   {
     title:"Imobiliaria landingPage ",
     isInBuild: false,
     link: "https://imobiliarialandingpage.vercel.app/",
     thumbnailUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/2/2c/Imobiliarialandingpage.png",
+      "https://i.imgur.com/fXjfHh3.png",
     tecnologies:[html5, css, js]
   },
   
