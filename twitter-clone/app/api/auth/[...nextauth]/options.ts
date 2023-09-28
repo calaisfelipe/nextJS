@@ -6,6 +6,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import bcrypt from "bcrypt";
 
 const options: NextAuthOptions = {
+  //@ts-ignore
   adapter:PrismaAdapter(prismadb),
   providers: [
     CredentialsProvider({
