@@ -80,7 +80,7 @@ export default function Home() {
               : "Seja muito bem vindo, a seguir você poderá conhecer um pouco mais sobre mim e sobre meu trabalho conhecendo alguns dos meus principais projetos."}
           </p>
           <div className="flex flex-row gap-1">
-          <Link href='https://upload.wikimedia.org/wikipedia/commons/3/39/CURRICULUMVITAR-FELIPECALAIS.pdf' target="_blank"><HomeButton type="button" text={language.state === "EN" ? "Resume" : "Resumo"} resume /></Link>
+          <Link href='https://drive.google.com/file/d/16JS_WsGrXdYHwksT965pNDqJKztp4p8H/view?usp=drive_link' target="_blank"><HomeButton type="button" text={language.state === "EN" ? "Resume" : "Resumo"} resume /></Link>
           <HomeButton
             type="button"
             text={language.state === "EN" ? "More about me" : "Mais sobre mim"}
