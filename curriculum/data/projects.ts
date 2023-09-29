@@ -49,13 +49,7 @@ export const projectsFirstRow = [
 ];
 
 export const firstRow = [
-  {
-    title: "Rocket LandPage",
-    isInBuild: false,
-    thumbnailUrl: "https://i.imgur.com/1gzxRqQ.png",
-    tecnologies: [html5, css, js, reactLogo, tailwind],
-    link: "https://projetos-web-rockets.vercel.app/",
-  },
+  
   {
     title: "Linktree - web Page",
     isInBuild: false,
@@ -87,5 +81,12 @@ export const secondRow = [
     link: "https://imobiliarialandingpage.vercel.app/",
     thumbnailUrl: "https://i.imgur.com/fXjfHh3.png",
     tecnologies: [html5, css, js],
+  },
+  {
+    title: "Rocket LandPage",
+    isInBuild: false,
+    thumbnailUrl: "https://i.imgur.com/1gzxRqQ.png",
+    tecnologies: [html5, css, js, reactLogo, tailwind],
+    link: "https://projetos-web-rockets.vercel.app/",
   },
 ];

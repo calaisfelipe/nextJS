@@ -63,8 +63,8 @@ const AboutMePage = () => {
         <div className="w-full sm:px-0 px-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             {language.state === "EN"
-              ? "A technology enthusiast, passionate about programming and its challenges. I like to create and solve problems. I study and keep myself updated with the best technologies of today. Programming is my focus, but I also wanted to specialize in UX/UI design. My goal is to become the most complete web professional possible."
-              : "Um entusiasta por tecnologia, apaixonado pela programação e seus desafios. Gosto de criar e resolver problemas. Estudo e me mantenho atualizado com as melhores tecnologias da atualidade. Programação é o meu foco mas tenho buscado me especializar tambem em UX/UI design. Meu objetivo é me tornar o profissional web mais completo possivel."}
+              ? "A technology enthusiast, passionate about programming and its challenges. I like to create applications and solve problems. I study and keep myself updated with the best technologies of today. Programming is my focus, but I also wanted to specialize in UX/UI design. My goal is to become the most complete web professional possible."
+              : "Um entusiasta por tecnologia, apaixonado pela programação e seus desafios. Gosto de criar aplicações e resolver problemas. Estudo e me mantenho atualizado com as melhores tecnologias da atualidade. Programação é o meu foco mas tenho buscado me especializar também em UX/UI design. Meu objetivo é me tornar o profissional web mais completo possivel."}
           </p>
         </div>
         <div className="flex md:flex-row flex-col gap-2 mt-2 w-full sm:px-0 px-2  items-center ">
