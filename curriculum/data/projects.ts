@@ -8,6 +8,7 @@ import css from "@/public/images/css-3.png";
 import js from "@/public/images/js.png";
 import prisma from "@/public/images/prisma.png";
 import mongo from "@/public/images/mongo.png";
+import next from "next";
 
 export const projectsFirstRow = [
   {
@@ -21,9 +22,8 @@ export const projectsFirstRow = [
     title: "Linktree - web Page",
     isInBuild: false,
     link: "https://linktree-project-one.vercel.app/",
-    tecnologies: [nextWhite,reactLogo, tailwind, js],
-    thumbnailUrl:
-      "https://i.imgur.com/z7Peodz.png",
+    tecnologies: [nextWhite, reactLogo, tailwind, js],
+    thumbnailUrl: "https://i.imgur.com/z7Peodz.png",
   },
   {
     title: "Twitter Clone",
@@ -46,17 +46,22 @@ export const projectsFirstRow = [
     thumbnailUrl: "https://i.imgur.com/fXjfHh3.png",
     tecnologies: [html5, css, js],
   },
+  {
+    title: "Ecommerce - Payment feature include",
+    isInBuild: false,
+    link: "https://ecommercestorecompleted.vercel.app/",
+    thumbnailUrl: "https://i.imgur.com/lEb8i4D.png",
+    tecnologies: [nextWhite, ts, tailwind, reactLogo, prisma],
+  },
 ];
 
 export const firstRow = [
-  
   {
     title: "Linktree - web Page",
     isInBuild: false,
     link: "https://linktree-project-one.vercel.app/",
     tecnologies: [nextWhite, reactLogo, tailwind, js],
-    thumbnailUrl:
-      "https://i.imgur.com/z7Peodz.png",
+    thumbnailUrl: "https://i.imgur.com/z7Peodz.png",
   },
   {
     title: "Twitter Clone",
@@ -66,11 +71,11 @@ export const firstRow = [
     tecnologies: [nextlogo, tailwind, reactLogo, prisma, mongo],
   },
   {
-    title: "Apple landingPage clone",
+    title: "Ecommerce - Payment feature include",
     isInBuild: false,
-    link: "https://appleclonelandpage.vercel.app/",
-    thumbnailUrl: "https://i.imgur.com/QFGqSmv.png",
-    tecnologies: [html5, css, js],
+    link: "https://ecommercestorecompleted.vercel.app/",
+    thumbnailUrl: "https://i.imgur.com/lEb8i4D.png",
+    tecnologies: [nextWhite, ts, tailwind, reactLogo, prisma],
   },
 ];
 
@@ -88,5 +93,12 @@ export const secondRow = [
     thumbnailUrl: "https://i.imgur.com/1gzxRqQ.png",
     tecnologies: [html5, css, js, reactLogo, tailwind],
     link: "https://projetos-web-rockets.vercel.app/",
+  },
+  {
+    title: "Apple landingPage clone",
+    isInBuild: false,
+    link: "https://appleclonelandpage.vercel.app/",
+    thumbnailUrl: "https://i.imgur.com/QFGqSmv.png",
+    tecnologies: [html5, css, js],
   },
 ];

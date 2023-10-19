@@ -5,6 +5,7 @@ import useContextLanguage from "@/hooks/useContextLanguage";
 import { useMotionValue, useTransform, animate, motion } from "framer-motion";
 import MobileAboutme from "@/components/MobileAboutme";
 import SliderServices from "@/components/SliderServices";
+import TransitionEffect from "@/components/TransitionEffect";
 
 
 const AboutMePage = () => {
@@ -39,6 +40,8 @@ const AboutMePage = () => {
   }, [language]);
 
   return (
+    <>
+    <TransitionEffect />
     <motion.div
       className="sm:h-screen h-[95.8vh] w-full 
       bg-gray-200 dark:bg-gray-700 dark:text-white flex justify-center overflow-x-hidden"
@@ -46,6 +49,7 @@ const AboutMePage = () => {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2, duration: 1 }}
     >
+      
       <div className="flex flex-col gap-2 mt-10 items-center xl:w-[70%] md:w-[80%] sm:w-[75%] w-full ">
         <Tittle text={language.state === "EN" ? `About me` : "Sobre mim"} />
 
@@ -82,6 +86,7 @@ const AboutMePage = () => {
         </div>
       </div>
     </motion.div>
+    </>
   );
 };
 
