@@ -21,7 +21,7 @@ export const projectsFirstRow = [
   {
     title: "Linktree - web Page",
     isInBuild: false,
-    link: "https://linktree-project-one.vercel.app/",
+    link: "https://linktree-felipe-calais.vercel.app/",
     tecnologies: [nextWhite, reactLogo, tailwind, js],
     thumbnailUrl: "https://i.imgur.com/z7Peodz.png",
   },
@@ -59,7 +59,7 @@ export const firstRow = [
   {
     title: "Linktree - web Page",
     isInBuild: false,
-    link: "https://linktree-project-one.vercel.app/",
+    link: "https://linktree-felipe-calais.vercel.app/",
     tecnologies: [nextWhite, reactLogo, tailwind, js],
     thumbnailUrl: "https://i.imgur.com/z7Peodz.png",
   },

@@ -110,7 +110,7 @@ const Skills = ({ language }: { language: string }) => {
         <div>
           {select.selected === "school" && (
             <motion.div
-              className="flex flex-col gap-1 "
+              className="flex flex-col gap-1 mt-2 "
               variants={contentAnimation}
               initial="hidden"
               animate="visible"
@@ -148,7 +148,7 @@ const Skills = ({ language }: { language: string }) => {
 
           {select.selected === "experience" && (
             <motion.div
-              className="flex lg:flex-row lg:flex-wrap lg:gap-x-2 flex-col gap-1"
+              className="flex lg:flex-row lg:flex-wrap lg:gap-x-2 flex-col gap-1 mt-2"
               variants={contentAnimation}
               initial="hidden"
               animate="visible"
