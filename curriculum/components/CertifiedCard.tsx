@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
 import {motion} from 'framer-motion'
+import HomeButton from "./HomeButton";
 
 
 const CertifiedCard = ({ data, language }: { data: licensesType, language:string }) => {
@@ -39,13 +40,13 @@ const CertifiedCard = ({ data, language }: { data: licensesType, language:string
       <div className="p-2 flex flex-col gap-1">
           
           <div className="w-full"> 
-              <p className="text-md md:text-xs text-slate-400 font-light">{emitted}</p>
-              <p className="text-md md:text-xs text-slate-400 font-light">{language === 'EN' ? 'Credential Code' : 'Código da credencial' }: {data.code}</p>
+              <p className="text-md md:text-xs text-gray-400 font-light tracking-tighter">{emitted}</p>
+              <p className="text-md md:text-xs text-gray-400 font-light tracking-tighter">{language === 'EN' ? 'Credential Code' : 'Código da credencial' }: {data.code}</p>
           </div>
           <Link
             href={data.link}
             target="_blank"
-            className=" mt-4 text-white rounded-full w-fit flex justify-center items-center px-2 py-2 border-white border-2 self-center hover:text-blue-400 hover:border-blue-400 hover:scale-105 transition-all"
+            className=" mt-4 text-white w-fit  flex justify-center items-center py-2 px-4 border-white border-2 rounded-full self-center hover:text-blue-400 hover:border-blue-400  hover:scale-105 transition-all  "
           >
            {language === 'EN' ? 'Show Credential' : 'Exibir Credencial' }  {<FiExternalLink className="ml-2" size={20} />}
           </Link>

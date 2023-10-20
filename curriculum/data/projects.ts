@@ -47,7 +47,7 @@ export const projectsFirstRow = [
     tecnologies: [html5, css, js],
   },
   {
-    title: "Ecommerce - Payment feature include",
+    title: "Ecommerce - Payment feature included",
     isInBuild: false,
     link: "https://ecommercestorecompleted.vercel.app/",
     thumbnailUrl: "https://i.imgur.com/lEb8i4D.png",
@@ -71,7 +71,7 @@ export const firstRow = [
     tecnologies: [nextlogo, tailwind, reactLogo, prisma, mongo],
   },
   {
-    title: "Ecommerce - Payment feature include",
+    title: "Ecommerce - Payment feature included",
     isInBuild: false,
     link: "https://ecommercestorecompleted.vercel.app/",
     thumbnailUrl: "https://i.imgur.com/lEb8i4D.png",

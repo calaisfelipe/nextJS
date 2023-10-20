@@ -6,10 +6,7 @@ import { CiDesktop } from "react-icons/ci";
 import { AiOutlineLoading } from "react-icons/ai";
 import {
   BsTelephone,
-  BsInstagram,
   BsGithub,
-  BsTwitter,
-  BsWhatsapp,
 } from "react-icons/bs";
 import Link from "next/link";
 import useContextLanguage from "@/hooks/useContextLanguage";
@@ -18,7 +15,7 @@ import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import SocialMediaBar from "@/components/SocialMediaBar";
 import {motion} from 'framer-motion'
-import { type } from "os";
+
 
 const ContactPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -121,24 +118,37 @@ const ContactPage = () => {
                   : "Espero que possamos trabalhar juntos no seu próximo projeto."}
               </p>
             </div>
-            <div className="md:flex flex-row justify-center items-center hidden">
-              <div>
-                <CiDesktop size={128} />
+            <div className="md:flex flex-row  items-center hidden">
+              <div className="bg-black rounded-full p-3 mt-2 ml-6 dark:bg-transparent dark:border-2">
+                <CiDesktop size={40} color="white" />
               </div>
               <div>
-                <p>felipe_calais@hotmail.com</p>
+                <p className="ml-2">felipe_calais@hotmail.com</p>
                 
               </div>
             </div>
 
-            <div className="md:flex flex-row justify-center items-center hidden">
+            <div className="md:flex flex-row  items-center hidden">
+              <div className="bg-black rounded-full p-3 ml-20 dark:bg-transparent dark:border-2">
+                <BsTelephone size={40} color="white" />
+              </div>
               <div>
-                <BsTelephone size={108} />
+                <div className="flex flex-row gap-2 mt-2 justify-center items-center ">
+                  <Link href="https://wa.me/5531995196573" target="_blank" className="ml-2">
+                    +55 (31) 9 9519-6573
+                  </Link>
+                  
+                </div>
+              </div>
+            </div>
+            <div className="md:flex flex-row items-center hidden">
+              <div className="bg-black rounded-full p-3 ml-36 dark:bg-transparent dark:border-2">
+                <BsGithub size={40} color="white" />
               </div>
               <div>
                 <div className="flex flex-row gap-2 mt-2 justify-center items-center">
-                  <Link href="https://wa.me/5531995196573" target="_blank">
-                    +55 (31) 9 9519-6573
+                  <Link href="https://github.com/calaisfelipe" target="_blank" className="ml-2">
+                  github.com/calaisfelipe
                   </Link>
                   
                 </div>
